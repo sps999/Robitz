@@ -97,7 +97,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_bodyAttachment.gml</script>
-    <script>scripts\scr_core.gml</script>
+    <script>scripts\scr_playerMovement.gml</script>
     <script>scripts\scr_material.gml</script>
     <script>scripts\scr_temperature.gml</script>
     <script>scripts\scr_itemPickup.gml</script>

@@ -37,7 +37,7 @@ draw_clear_alpha(c_black, 0);
 // Reset to application surface
 surface_reset_target();
 
-
+darkness = 1;
 </string>
           </argument>
         </arguments>
@@ -77,10 +77,10 @@ if (surface_exists(surf)) {
     // Draw circles in the overlay with your different light sources
     // Note that I add randomization to the position and radius to mimic a flicker effect
     with (obj_body)
-        draw_circle(x + random_range(-1, 1), y + random_range(-1, 1), 160 + random_range(-1, 1), false);
+        draw_circle(x + random_range(-1, 1), y + random_range(-1, 1), other.darkness*160 + random_range(-1, 1), false);
         
     with (obj_basicBullet)
-        draw_circle(x + 2*other.hspeed + random_range(-1, 1), y + 2*other.vspeed + random_range(-1, 1), 60 + (2*other.image_xscale) + random_range(-1, 1), false);
+        draw_circle(x + 2*hspeed + random_range(-1, 1), y + 2*vspeed + random_range(-1, 1), other.darkness*60 + (2*image_xscale) + random_range(-1, 1), false);
     
     // Reset all of your draw stuff
     draw_set_blend_mode(bm_normal);

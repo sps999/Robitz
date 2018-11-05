@@ -51,8 +51,8 @@ view_vborder[view_current]=0.5*view_hview[view_current];
             <kind>1</kind>
             <string>direction=point_direction(attached.x,attached.y,mouse_x,mouse_y);
 
-x=attached.x;// + 0.2*distance_to_point(mousex,attached.x)*cos(degtorad(direction));
-y=attached.y;// - 0.2*distance_to_point(mousey,attached.y)*sin(degtorad(direction));
+x=attached.x + attached.hspeed;// + 0.2*distance_to_point(mousex,attached.x)*cos(degtorad(direction));
+y=attached.y + attached.vspeed;// - 0.2*distance_to_point(mousey,attached.y)*sin(degtorad(direction));
 //speed=0.2*distance_to_point(mouse_x,attached.mouse_y);
 
 if(screenShake&gt;0)

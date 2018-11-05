@@ -238,7 +238,7 @@ image_blend = c_material;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Create Body Parts</string>
+            <string>Create Linked Parts</string>
           </argument>
         </arguments>
       </action>
@@ -258,9 +258,11 @@ image_blend = c_material;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>myHud=instance_create(0,0,obj_hud);
+            <string>// Create HUD
+myHud=instance_create(0,0,obj_hud);
 myHud.hudBody=id;
 
+// Create Head
 myHead=instance_create(x,y,obj_head);
 myHead.attached=id;
 myHead.xOffset=headXOffset;
@@ -268,6 +270,7 @@ myHead.yOffset=headYOffset;
 with(myHead) event_perform(ev_alarm,0);
 myHud.hudHead=myHead;
 
+// Create Left Arm
 myLArm=instance_create(x,y,obj_lArm);
 myLArm.attached=id;
 myLArm.xOffset=lArmXOffset;
@@ -275,6 +278,7 @@ myLArm.yOffset=lArmYOffset;
 with(myLArm) event_perform(ev_alarm,0);
 myHud.hudLArm=myLArm;
 
+// Create Right Arm
 myRArm=instance_create(x,y,obj_rArm);
 myRArm.attached=id;
 myRArm.xOffset=rArmXOffset;
@@ -282,12 +286,14 @@ myRArm.yOffset=rArmYOffset;
 with(myRArm) event_perform(ev_alarm,0);
 myHud.hudRArm=myRArm;
 
+// Create Back Leg (mostly visual)
 myBackLeg=instance_create(x,y,obj_backLeg);//The Back Leg is purely aesthetic
 myBackLeg.attached=id;
 myBackLeg.xOffset=backLegXOffset;
 myBackLeg.yOffset=backLegYOffset;
 with(myBackLeg) event_perform(ev_alarm,0);
 
+// Create Front Leg
 myLeg=instance_create(x,y,obj_leg);
 myLeg.attached=id;
 myLeg.xOffset=legXOffset;
@@ -295,11 +301,15 @@ myLeg.yOffset=legYOffset;
 with(myLeg) event_perform(ev_alarm,0);
 myHud.hudLeg=myLeg;
 
+// Create Camera Object
 myCam=instance_create(x,y,obj_camera);
 myCam.attached=id;
 
+// Create Crosshair
 myCross=instance_create(x-64,y,obj_crosshair);
 myCross.attached=id;
+
+// Player Color Crosshairs
 if(player=1)
 {
     myCross.image_blend=c_blue;
@@ -425,6 +435,26 @@ else
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Return to Menu After Death</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -509,6 +539,26 @@ switch (gameMode)
       </action>
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Main Movement</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>601</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -523,7 +573,7 @@ switch (gameMode)
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>scr_core</script>
+            <script>scr_playerMovement</script>
           </argument>
           <argument>
             <kind>0</kind>
@@ -563,7 +613,7 @@ switch (gameMode)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Main</string>
+            <string>Death</string>
           </argument>
         </arguments>
       </action>
@@ -935,6 +985,26 @@ if(bodyChoice[player-1]=5)
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Relocate on Room transition</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -953,6 +1023,36 @@ if(bodyChoice[player-1]=5)
 {
     x = destinationX;
     y = destinationY;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="115">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if window_get_fullscreen()
+{
+    window_set_fullscreen(false);
+}
+else
+{
+    window_set_fullscreen(true);
 }
 </string>
           </argument>
