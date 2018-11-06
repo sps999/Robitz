@@ -16,8 +16,8 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1548</w>
-    <h>840</h>
+    <w>1024</w>
+    <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>-1</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-223</xoffset>
-    <yoffset>-23</yoffset>
+    <xoffset>-142</xoffset>
+    <yoffset>-210</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background4" x="0" y="-128" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
@@ -545,6 +545,11 @@
     <instance objName="obj_block" x="128" y="608" name="inst_97F4A5CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="32" y="608" name="inst_352AA57C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_autoDoor" x="-64" y="-128" name="inst_3C403975" locked="0" code="destination=12;&#xA;destinationX=2032;&#xA;destinationY=-1;&#xA;" scaleX="2" scaleY="22" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="96" y="64" name="inst_4D314C39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="704" y="64" name="inst_ACBE0C9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="384" y="64" name="inst_58CFF3E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="544" y="288" name="inst_7CC8023B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="256" y="288" name="inst_C1766E33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

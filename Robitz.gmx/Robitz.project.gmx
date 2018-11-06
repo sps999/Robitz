@@ -43,11 +43,14 @@
       <sprite>sprites\spr_rLeg02</sprite>
       <sprite>sprites\spr_lArm04</sprite>
       <sprite>sprites\spr_rArm04</sprite>
+      <sprite>sprites\spr_lArm05</sprite>
+      <sprite>sprites\spr_rArm05</sprite>
       <sprite>sprites\spr_wheel</sprite>
       <sprite>sprites\spr_brokenBot</sprite>
     </sprites>
     <sprite>sprites\spr_dummy</sprite>
     <sprite>sprites\spr_noHead</sprite>
+    <sprite>sprites\spr_noBody</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_jet</sprite>
     <sprite>sprites\spr_oil</sprite>
@@ -71,6 +74,7 @@
     <sprite>sprites\spr_healthMonitor</sprite>
     <sprite>sprites\spr_shieldBullet</sprite>
     <sprite>sprites\spr_drill</sprite>
+    <sprite>sprites\spr_grapple</sprite>
     <sprite>sprites\spr_savePoint</sprite>
     <sprite>sprites\spr_item</sprite>
     <sprite>sprites\spr_itemHead</sprite>
@@ -125,6 +129,7 @@
     <object>objects\obj_spark</object>
     <object>objects\obj_shield</object>
     <object>objects\obj_drill</object>
+    <object>objects\obj_grapple</object>
     <object>objects\obj_button</object>
     <object>objects\obj_box</object>
     <object>objects\obj_fire</object>

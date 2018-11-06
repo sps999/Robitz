@@ -314,14 +314,14 @@ if(vspeed&lt;-8)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.team!=0)
+            <string>if(other.team!=0  &amp;&amp; other.attack &gt; 0)
 {
     image_blend=c_red;
     sound_play(snd_hit1);
     hp-=other.attack;
     with(other)
     {
-        instance_destroy();
+        alarm[0]=1;
     }
     
     if(aggro&lt;0)

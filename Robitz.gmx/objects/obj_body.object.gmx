@@ -633,7 +633,7 @@ switch (gameMode)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hp&lt;=0 &amp;&amp; sprite_index!=noone)
+            <string>if(hp&lt;=0 &amp;&amp; sprite_index!=spr_noBody)
 {
     i=instance_create(x,y,obj_debris);
     i.sprite_index=sprite_index;
@@ -657,7 +657,7 @@ switch (gameMode)
     //myCam.sprite_index=noone;
     //myCross.sprite_index=noone;
     alarm[0]=120;
-    sprite_index=noone;
+    sprite_index=spr_noBody;
     
     if(player=1)
     {
@@ -1023,6 +1023,36 @@ if(bodyChoice[player-1]=5)
 {
     x = destinationX;
     y = destinationY;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(myCross.x&lt;x)
+{
+    draw_sprite_ext(sprite_index, image_index, x, y, -1*image_xscale, image_yscale, image_angle, image_blend, 1);
+}
+else
+{
+    draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, 1);
 }
 </string>
           </argument>

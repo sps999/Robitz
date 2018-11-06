@@ -234,14 +234,14 @@ effect_create_above(ef_explosion,x,y,0.5,c_white);
 
 shaking=other.attack;
 
-if(other.team!=0)
+if(other.team!=0 &amp;&amp; other.attack &gt; 0)
 {
     image_blend=c_red;
     sound_play(snd_hit1);
     hp-=other.attack;
     with(other)
     {
-        instance_destroy();
+        alarm[0]=1;
     }
 }
 </string>
