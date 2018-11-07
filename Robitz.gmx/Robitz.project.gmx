@@ -45,6 +45,8 @@
       <sprite>sprites\spr_rArm04</sprite>
       <sprite>sprites\spr_lArm05</sprite>
       <sprite>sprites\spr_rArm05</sprite>
+      <sprite>sprites\spr_lArm06</sprite>
+      <sprite>sprites\spr_rArm06</sprite>
       <sprite>sprites\spr_wheel</sprite>
       <sprite>sprites\spr_brokenBot</sprite>
     </sprites>
@@ -75,6 +77,7 @@
     <sprite>sprites\spr_shieldBullet</sprite>
     <sprite>sprites\spr_drill</sprite>
     <sprite>sprites\spr_grapple</sprite>
+    <sprite>sprites\spr_magnetBall</sprite>
     <sprite>sprites\spr_savePoint</sprite>
     <sprite>sprites\spr_item</sprite>
     <sprite>sprites\spr_itemHead</sprite>
@@ -100,16 +103,15 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_bodyAttachment.gml</script>
     <script>scripts\scr_playerMovement.gml</script>
     <script>scripts\scr_material.gml</script>
     <script>scripts\scr_temperature.gml</script>
     <script>scripts\scr_itemPickup.gml</script>
+    <script>scripts\scr_bodyAttachment.gml</script>
     <script>scripts\scr_itemDrop.gml</script>
     <script>scripts\scr_message.gml</script>
     <script>scripts\scr_screenShake.gml</script>
     <script>scripts\scr_damage.gml</script>
-    <script>scripts\scr_shields.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontComputer</font>
@@ -117,6 +119,8 @@
     <font>fonts\fontDosBig</font>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_playerCollisions</object>
+    <object>objects\obj_enemy</object>
     <object>objects\obj_head</object>
     <object>objects\obj_body</object>
     <object>objects\obj_lArm</object>
@@ -130,12 +134,12 @@
     <object>objects\obj_shield</object>
     <object>objects\obj_drill</object>
     <object>objects\obj_grapple</object>
+    <object>objects\obj_magnetBall</object>
     <object>objects\obj_button</object>
     <object>objects\obj_box</object>
     <object>objects\obj_fire</object>
     <object>objects\obj_oil</object>
     <object>objects\obj_hud</object>
-    <object>objects\obj_enemy</object>
     <object>objects\obj_drone</object>
     <object>objects\obj_hive</object>
     <object>objects\obj_bee</object>

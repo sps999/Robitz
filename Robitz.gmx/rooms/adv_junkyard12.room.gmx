@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-227</xoffset>
-    <yoffset>-130</yoffset>
+    <xoffset>-363</xoffset>
+    <yoffset>-189</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background4" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
@@ -170,7 +170,7 @@
     <instance objName="obj_block" x="128" y="288" name="inst_548A0C7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="128" y="384" name="inst_04B62A65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="128" y="576" name="inst_3BD0A2FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_darkRoom" x="0" y="0" name="inst_594141C3" locked="0" code="darkness = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_darkRoom" x="0" y="0" name="inst_594141C3" locked="0" code="darkness = 2;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="320" y="288" name="inst_06FDFCDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="352" y="320" name="inst_41A7DC4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="352" y="288" name="inst_9B3F6F8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -397,6 +397,7 @@
     <instance objName="obj_hive" x="1168" y="448" name="inst_455DD25D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_debris" x="1616" y="528" name="inst_9680D9AF" locked="0" code="sprite_index=spr_head01;&#xA;image_angle=47;&#xA;image_blend=c_gray;&#xA;&#xA;x+=16;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_debris" x="1584" y="560" name="inst_F978578E" locked="0" code="sprite_index=spr_lArm01;&#xA;image_angle=50;&#xA;image_blend=c_gray;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hive" x="976" y="448" name="inst_059B8F4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -29,8 +29,8 @@
 {
     direction=attached.direction;
     image_angle=direction;
-    x=attached.x+22*cos(degtorad(direction));
-    y=attached.y-22*sin(degtorad(direction));
+    x=attached.x+36*cos(degtorad(direction));
+    y=attached.y-36*sin(degtorad(direction));
 }
 else
 {
@@ -42,6 +42,14 @@ if((attached.attached.player=1 &amp;&amp; ((attached.object_index=obj_lArm &amp;
 {
     attached.image_index=0;
     instance_destroy();
+}
+
+if(collision_point(x+hspeed,y+vspeed,obj_wall,false,true))
+{
+    sound_play(snd_hit1);
+    
+    attached.attached.vlaunchSpeed+=0.2*sin(degtorad(other.direction))*(1-attached.attached.totalMass/64000);
+    attached.attached.hlaunchSpeed-=1*cos(degtorad(other.direction))*(1-attached.attached.totalMass/64000);
 }
 </string>
           </argument>
@@ -102,12 +110,12 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(attack&gt;=2*other.attack &amp;&amp; team!=other.team)
+            <string>if(other.attack &lt;= 10 &amp;&amp; team!=other.team)
 {
-    with(other)
-    {
-        instance_destroy();
-    }
+
+    sound_play(snd_shoot1);
+    other.team = team;
+    other.direction += 180 + (choose(-1,1) * random_range(20,75));
 }
 </string>
           </argument>

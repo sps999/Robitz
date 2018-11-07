@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>-1</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-142</xoffset>
-    <yoffset>-210</yoffset>
+    <xoffset>-94</xoffset>
+    <yoffset>-218</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background4" x="0" y="-128" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
@@ -110,7 +110,7 @@
     <instance objName="obj_block" x="192" y="576" name="inst_AE2B46DC" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="192" y="672" name="inst_74C2D1F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="192" y="704" name="inst_6996D17A" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_darkRoom" x="0" y="0" name="inst_594141C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_darkRoom" x="0" y="0" name="inst_594141C3" locked="0" code="darkness = 0.1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="320" y="640" name="inst_1EDA16E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="288" y="672" name="inst_6AEBB2A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="320" y="672" name="inst_E348780C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -549,7 +549,7 @@
     <instance objName="obj_block" x="704" y="64" name="inst_ACBE0C9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="384" y="64" name="inst_58CFF3E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="544" y="288" name="inst_7CC8023B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block" x="256" y="288" name="inst_C1766E33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="256" y="288" name="inst_C1766E33" locked="0" code="speed=1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

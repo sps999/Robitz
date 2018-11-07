@@ -5,10 +5,30 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_playerCollisions</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Head Properties</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,84 +73,50 @@ image_index=0;
 if(headChoice[attached.player-1]=1) //Shooter Head
 {
     sprite_index=spr_head01; //Temp
-    script_execute(scr_material,12);
+    script_execute(scr_material,1);
     volume=0.3; //Temp
 }
 else if(headChoice[attached.player-1]=2) //Flame Mask
 {
     sprite_index=spr_head02; //Temp
-    script_execute(scr_material,13);
+    script_execute(scr_material,2);
     volume=0.5; //Temp
 }
 else if(headChoice[attached.player-1]=3) //Turtle Head
 {
     sprite_index=spr_head01; //Temp
-    script_execute(scr_material,24);
+    script_execute(scr_material,3);
     volume=1.8; //Temp
 }
 else if(headChoice[attached.player-1]=4) //Biker Head
 {
     sprite_index=spr_head01; //Temp
-    script_execute(scr_material,26);
+    script_execute(scr_material,4);
+    volume=0.4; //Temp
+}
+else if(headChoice[attached.player-1]=5) //Electric Head
+{
+    sprite_index=spr_head01; //Temp
+    script_execute(scr_material,5);
+    volume=0.4; //Temp
+    
+    attached.brightness = 800;
+}
+else if(headChoice[attached.player-1]=6) //Magnet Head
+{
+    sprite_index=spr_head01; //Temp
+    script_execute(scr_material,6);
     volume=0.4; //Temp
 }
 else // Standard Null Head
 {
     sprite_index=spr_head01; //Temp
-    script_execute(scr_material,12);
+    script_execute(scr_material,1);
     volume=0.3; //Temp
 }
 mass=(density*volume);
 image_blend = c_material;
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>--Remove head on Game Start</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*if(spawnPoint=GameStart)
-{
-    sprite_index = spr_noHead;
-    image_index=0;
-    volume=0.1;
-    mass=1;
-    hp=0;
-}8/
 </string>
           </argument>
         </arguments>
@@ -286,209 +272,6 @@ if(hp&lt;=0 &amp;&amp; sprite_index!=spr_noHead)
 if(hp&lt;=0 &amp;&amp; attached.hp&gt;0)
 {
     part_particles_create(global.P_System, x, y, global.spark, 1);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_sprinkler">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0)
-{
-    if(temperature&gt;other.temperature)
-    {
-        temperature+=(-0.3/heatResist)*(temperature-other.temperature);
-        if(temperature &gt; 250)
-        {
-            effect_create_above(ef_smokeup,bbox_left+random(bbox_right-bbox_left),bbox_top+random(bbox_bottom-bbox_top),0.001,merge_color(c_aqua,c_white,0.8));
-            if(other.cooldown=0)
-            {
-                sound_play(snd_steam);
-            }
-            other.cooldown=25;
-        }
-    }
-    repeat(4)
-    {
-        part_particles_create(global.P_System, bbox_left+random(bbox_right-bbox_left),bbox_top, global.waterDrop, 1);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bee">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; attached.team!=other.team &amp;&amp; other.bounce&lt;=0)
-{
-    script_execute(scr_damage,other.attack);
-    image_blend=c_dkgray;
-    sound_play(snd_hit1);
-    attached.vlaunchSpeed-=0.04*(other.speed)*sin(degtorad(other.direction))*(1-mass/64000);
-    attached.hlaunchSpeed+=0.08*(other.speed)*cos(degtorad(other.direction))*(1-mass/64000);
-    other.bounce=30;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_fire">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; (temperature&lt;other.temperature))
-{
-    temperature+=(-0.05/heatResist)*(temperature-other.temperature);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_drill">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; other.team!=attached.team)
-{
-    sound_play(snd_hit1);
-    image_blend=c_gray;
-    script_execute(scr_damage,0.04*other.attack);
-    attached.vlaunchSpeed-=0.01*(other.attack)*sin(degtorad(other.direction))*(1-attached.totalMass/64000);
-    attached.hlaunchSpeed+=0.02*(other.attack)*cos(degtorad(other.direction))*(1-attached.totalMass/64000);
-    
-    other.attached.attached.hlaunchSpeed-=0.01*attached.hlaunchSpeed;
-    other.attached.attached.vlaunchSpeed+=0.01*attached.vlaunchSpeed;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_shield">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; other.team!=attached.team &amp;&amp; other.attached=0)
-{
-    sound_play(snd_energyHit1);
-    image_blend=c_gray;
-    script_execute(scr_damage,other.energy/4);
-    if(other.alarm[0]!=1)
-    {
-        attached.vlaunchSpeed-=0.04*(other.energy)*sin(degtorad(other.direction))*(1-attached.totalMass/64000);
-        attached.hlaunchSpeed+=0.08*(other.energy)*cos(degtorad(other.direction))*(1-attached.totalMass/64000);
-    }
-    other.alarm[0]=1;
-    other.speed=0;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_basicBullet">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; attached.team!=other.team)
-{
-    script_execute(scr_damage,other.attack);
-    temperature+=(-0.1/heatResist)*(temperature-other.temperature);
-    image_blend=c_dkgray;
-    sound_play(snd_hit1);
-    attached.vlaunchSpeed-=0.04*(other.speed)*sin(degtorad(other.direction))*(1-mass/64000);
-    attached.hlaunchSpeed+=0.08*(other.speed)*cos(degtorad(other.direction))*(1-mass/64000);
-    with(other)
-    {
-        alarm[0]=1; // Destroy Bullet
-        speed=0;
-    }
 }
 </string>
           </argument>

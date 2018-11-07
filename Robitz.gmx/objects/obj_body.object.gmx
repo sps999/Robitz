@@ -5,10 +5,30 @@
   <visible>-1</visible>
   <depth>1</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_playerCollisions</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Body Properties</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -27,6 +47,7 @@
             <kind>1</kind>
             <string>team=1;
 player=1;
+attached = id;
 
 hp=100;
 temperature=21; //Base Temperature
@@ -42,6 +63,8 @@ selfDestruct=0;
 destinationX=-1;
 destinationY=-1;
 energy=0;
+
+brightness = 160;
 // screenShake=0;
     //Temporary: Set up team system later. Currently 1=Player, 0=Enemy.
     /* Choice[player-1] of body effects properties and material
@@ -67,7 +90,7 @@ energy=0;
 if(bodyChoice[player-1]=1) 
 {
     sprite_index=spr_body01; //Temp
-    script_execute(scr_material,12);
+    script_execute(scr_material,1);
     volume=0.6; //Temp
     energy=0;
     useEnergy=0;
@@ -94,7 +117,7 @@ else if(bodyChoice[player-1]=2)
 {
     sprite_index=spr_body02; //Temp
     image_speed=30;
-    script_execute(scr_material,26);
+    script_execute(scr_material,2);
     volume=0.7; //Temp
     energy=100;
     useEnergy=1;
@@ -119,7 +142,7 @@ else if(bodyChoice[player-1]=2)
 else if(bodyChoice[player-1]=3)
 {
     sprite_index=spr_body01; //Temp
-    script_execute(scr_material,24);
+    script_execute(scr_material,3);
     volume=1.8; //Temp
     energy=0;
     useEnergy=0;
@@ -144,7 +167,7 @@ else if(bodyChoice[player-1]=3)
 else if(bodyChoice[player-1]=4)
 {
     sprite_index=spr_body01; //Temp
-    script_execute(scr_material,12);
+    script_execute(scr_material,4);
     volume=0.7; //Temp
     energy=0;
     useEnergy=0;
@@ -170,7 +193,32 @@ else if(bodyChoice[player-1]=4)
 else if(bodyChoice[player-1]=5)
 {
     sprite_index=spr_body01; //Temp
-    script_execute(scr_material,29);
+    script_execute(scr_material,5);
+    volume=1.8; //Temp
+    energy=100;
+    useEnergy=1;
+    
+    headXOffset=0;
+    headYOffset=-11;
+    
+    rArmXOffset=1;
+    rArmYOffset=-8;
+    
+    lArmXOffset=7;
+    lArmYOffset=-10;
+    
+    backLegXOffset=2;
+    backLegYOffset=8;
+    
+    legXOffset=-2;
+    legYOffset=6;
+}
+
+// Magnet Body: 
+else if(bodyChoice[player-1]=6)
+{
+    sprite_index=spr_body01; //Temp
+    script_execute(scr_material,6);
     volume=1.8; //Temp
     energy=100;
     useEnergy=1;
@@ -195,7 +243,7 @@ else // Standard Null body
 
 {
     sprite_index=spr_body01; //Temp
-    script_execute(scr_material,12);
+    script_execute(scr_material,1);
     volume=0.6; //Temp
     useEnergy=0;
     
@@ -773,209 +821,6 @@ if(bodyChoice[player-1]=5)
         alarm[2]=1;
     }
     energy+=10;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_sprinkler">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0)
-{
-    if(temperature&gt;other.temperature)
-    {
-        temperature+=(-0.3/heatResist)*(temperature-other.temperature);
-        if(temperature &gt; 250)
-        {
-            effect_create_above(ef_smokeup,bbox_left+random(bbox_right-bbox_left),bbox_top+random(bbox_bottom-bbox_top),0.001,merge_color(c_aqua,c_white,0.8));
-            if(other.cooldown=0)
-            {
-                sound_play(snd_steam);
-            }
-            other.cooldown=25;
-        }
-    }
-    repeat(4)
-    {
-        part_particles_create(global.P_System, bbox_left+random(bbox_right-bbox_left),bbox_top, global.waterDrop, 1);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_bee">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; team!=other.team &amp;&amp; other.bounce&lt;=0)
-{
-    script_execute(scr_damage,other.attack);
-    image_blend=c_dkgray;
-    sound_play(snd_hit1);
-    vlaunchSpeed-=0.04*(other.speed)*sin(degtorad(other.direction))*(1-mass/64000);
-    hlaunchSpeed+=0.08*(other.speed)*cos(degtorad(other.direction))*(1-mass/64000);
-    other.bounce=30;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_fire">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if((temperature&lt;other.temperature))
-{
-    temperature+=(-0.05/heatResist)*(temperature-other.temperature);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_drill">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; other.team!=team)
-{
-    sound_play(snd_hit1);
-    image_blend=c_gray;
-    script_execute(scr_damage,0.04*other.attack);
-    vlaunchSpeed-=0.01*(other.attack)*sin(degtorad(other.direction))*(1-totalMass/64000);
-    hlaunchSpeed+=0.02*(other.attack)*cos(degtorad(other.direction))*(1-totalMass/64000);
-    
-    other.attached.attached.hlaunchSpeed-=0.01*hlaunchSpeed;
-    other.attached.attached.vlaunchSpeed+=0.01*vlaunchSpeed;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_shield">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(other.team!=team &amp;&amp; other.attached=0)
-{
-    sound_play(snd_energyHit1);
-    image_blend=c_gray;
-    script_execute(scr_damage,other.energy/4);
-    if(other.alarm[0]!=1)
-    {
-        vlaunchSpeed-=0.04*(other.energy)*sin(degtorad(other.direction))*(1-totalMass/64000);
-        hlaunchSpeed+=0.08*(other.energy)*cos(degtorad(other.direction))*(1-totalMass/64000);
-    }
-    other.alarm[0]=1;
-    other.speed=0;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_basicBullet">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; team!=other.team)
-{
-    script_execute(scr_damage,other.attack);
-    temperature+=(-0.1/heatResist)*(temperature-other.temperature);
-    image_blend=c_dkgray;
-    sound_play(snd_hit1);
-    vlaunchSpeed-=0.04*(other.speed)*sin(degtorad(other.direction))*(1-totalMass/64000);
-    hlaunchSpeed+=0.08*(other.speed)*cos(degtorad(other.direction))*(1-totalMass/64000);
-    with(other)
-    {
-        alarm[0]=1; // Destroy Bullet
-        speed=0;
-    }
 }
 </string>
           </argument>

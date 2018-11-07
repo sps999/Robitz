@@ -76,7 +76,7 @@
         
     */
     
-if (argument0=12) //Magnesium 12
+if (argument0=1) //Magnesium 12
 {
     hardness=22;
     meltingPoint=350;
@@ -85,52 +85,7 @@ if (argument0=12) //Magnesium 12
     conductivity=23;
     c_material=c_magnesium; //make_color_rgb(96,128,128);
 }
-if (argument0=13) //Aluminum 13
-{
-    hardness=21;
-    meltingPoint=353;
-    heatResist=235;
-    density=2700;
-    conductivity=38;
-    c_material=c_aluminum; //make_color_rgb(192,192,224);
-}
-if (argument0=22) //Titanium 22
-{
-    hardness=37;
-    meltingPoint=363;
-    heatResist=22;
-    density=4507;
-    conductivity=2.5;
-    c_material=c_titanium; //make_color_rgb(224,192,160);
-}
-if (argument0=24) //Chromium 24
-{
-    hardness=50;
-    meltingPoint=769;
-    heatResist=94;
-    density=7140;
-    conductivity=8;
-    c_material=c_chromium; //make_color_rgb(192,224,224);
-}
-if (argument0=26) //Iron 26
-{
-    hardness=29;
-    meltingPoint=646;
-    heatResist=80;
-    density=7874;
-    conductivity=10;
-    c_material=c_iron; //make_color_rgb(96,96,96);
-}
-if (argument0=28) //Nickel 28
-{
-    hardness=36;
-    meltingPoint=618;
-    heatResist=91;
-    density=8908;
-    conductivity=14;
-    c_material=c_nickel; //make_color_rgb(96,128,96);
-}
-if (argument0=29) //Copper 29
+else if (argument0=2) //Copper 29
 {
     hardness=43;
     meltingPoint=495;
@@ -139,7 +94,52 @@ if (argument0=29) //Copper 29
     conductivity=59;
     c_material=c_copper; //make_color_rgb(192,128,96);
 }
-if (argument0=30) //Zinc 30
+else if (argument0=3) //Chromium 24
+{
+    hardness=50;
+    meltingPoint=769;
+    heatResist=94;
+    density=7140;
+    conductivity=8;
+    c_material=c_chromium; //make_color_rgb(192,224,224);
+}
+else if (argument0=4) //Titanium 22
+{
+    hardness=37;
+    meltingPoint=363;
+    heatResist=22;
+    density=4507;
+    conductivity=2.5;
+    c_material=c_titanium; //make_color_rgb(224,192,160);
+}
+else if (argument0=5) //Aluminum 13
+{
+    hardness=21;
+    meltingPoint=353;
+    heatResist=235;
+    density=2700;
+    conductivity=38;
+    c_material=c_aluminum; //make_color_rgb(192,192,224);
+}
+else if (argument0=6) //Nickel 28
+{
+    hardness=36;
+    meltingPoint=618;
+    heatResist=91;
+    density=8908;
+    conductivity=14;
+    c_material=c_nickel; //make_color_rgb(96,128,96);
+}
+else if (argument0=7) //Iron 26
+{
+    hardness=29;
+    meltingPoint=646;
+    heatResist=80;
+    density=7874;
+    conductivity=10;
+    c_material=c_iron; //make_color_rgb(96,96,96);
+}
+else if (argument0=8) //Zinc 30
 {
     hardness=27;
     meltingPoint=273;

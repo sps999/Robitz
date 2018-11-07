@@ -27,10 +27,11 @@
             <kind>1</kind>
             <string>temperature=21;
 hp=100;
+prevhp = hp;
 image_speed=0;
 image_index=0;
 shaking=0;
-script_execute(scr_material,13);
+script_execute(scr_material,1);
 
 instance_create(x,bbox_bottom,obj_bee);
 instance_create(x,bbox_bottom,obj_bee);
@@ -38,6 +39,37 @@ instance_create(x,bbox_bottom,obj_bee);
 instance_create(x,bbox_bottom,obj_bee);
 
 team=0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(random(30) &lt; (prevhp - hp))
+{
+    var bee = instance_create(x,bbox_bottom,obj_bee);
+    bee.aggro = 100;
+}
+    
+shaking=prevhp - hp;
+
+prevhp = hp;
 </string>
           </argument>
         </arguments>
@@ -147,103 +179,6 @@ effect_create_above(ef_firework,x,y,0.5,c_red);
 effect_create_above(ef_firework,x,y,0.5,c_orange);
 effect_create_above(ef_explosion,x,y,0.5,c_orange);
 effect_create_above(ef_explosion,x,y,0.5,c_white);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_fire">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(temperature&lt;other.temperature)
-{
-    temperature+=(-1/heatResist)*(temperature-other.temperature);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_shield">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(other.team!=0 &amp;&amp; other.attached=0)
-{
-    sound_play(snd_energyHit1);
-    image_blend=c_gray;
-    hp-=0.5*other.energy;
-    other.energy*=0.5;;
-    other.energy-=15;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_basicBullet">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(random(30) &lt; other.attack)
-{
-    var bee = instance_create(x,bbox_bottom,obj_bee);
-    bee.aggro = 100;
-}
-    
-
-shaking=other.attack;
-
-if(other.team!=0 &amp;&amp; other.attack &gt; 0)
-{
-    image_blend=c_red;
-    sound_play(snd_hit1);
-    hp-=other.attack;
-    with(other)
-    {
-        alarm[0]=1;
-    }
-}
 </string>
           </argument>
         </arguments>

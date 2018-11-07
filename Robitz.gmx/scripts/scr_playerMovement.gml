@@ -152,6 +152,20 @@ if(myLeg.hover=1)
                 i.temperature=4200;
                 i.attack=1;
             }
+            
+            // Electicboots Double Jump
+            if(legChoice[player-1]=5)
+            {
+                vspeed=0;
+                vlaunchSpeed*=0.25;
+                jumpspeed=-myLeg.baseHover*(1-totalMass/64000);
+            }
+            
+            // Magnet Hover
+            if(legChoice[player-1]=6)
+            {
+                jumpspeed=-myLeg.baseHover*(1-totalMass/64000);
+            }
         }
     }
 }

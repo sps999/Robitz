@@ -49,7 +49,8 @@ attached.image_index = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = -8;
+            <string>attack=0;
+speed = -8;
 if(distance_to_point(attached.x,attached.y) &lt; 12)
 {
     instance_destroy();
@@ -270,28 +271,25 @@ speed=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if( attack &gt; 0)
+            <string>if(attack &gt; 0)
 {
     speed = 0;
     
-    //x=(other.bbox_left + other.bbox_right) / 2;
-    //y=(other.bbox_top + other.bbox_bottom) / 2;
-        
-    if(bbox_left-other.bbox_right&gt;16)
+    if(y &gt; other.bbox_bottom)
     {
-        x=other.bbox_right;
+        y = other.bbox_bottom;
     }
-    if(bbox_right-other.bbox_left&lt;-16)
+    if(y &lt; other.bbox_top)
     {
-        x=other.bbox_left;
+        y = other.bbox_top;
     }
-    if(bbox_top-other.bbox_bottom&gt;16)
+    if(x &gt; other.bbox_right)
     {
-        y=other.bbox_bottom;
+        x = other.bbox_right;
     }
-    if(bbox_bottom-other.bbox_top&lt;-16)
+    if(x &lt; other.bbox_left)
     {
-        y=other.bbox_top;
+        x = other.bbox_left;
     }
     
     direction = point_direction(attached.x,attached.y,x,y);
