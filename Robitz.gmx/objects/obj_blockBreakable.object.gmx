@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp=100;
+            <string>/// Set Health and Freeze Animations
+
+hp=100;
 image_speed=0;
 </string>
           </argument>
@@ -49,7 +51,9 @@ image_speed=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i=0;i&lt;8;i+=1)
+            <string>/// Create Debris on Death
+
+for(i=0;i&lt;8;i+=1)
 {
     j=instance_create(x+random(16),y+random(16),obj_debris);
     j.sprite_index=spr_wallDebris;

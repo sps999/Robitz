@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x=attached.x;
+            <string>/// Follow Player during Ground Pound
+x=attached.x;
 y=attached.bbox_bottom;
 if(attack&lt;50)
 {

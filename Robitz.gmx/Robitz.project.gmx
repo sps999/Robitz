@@ -5,101 +5,127 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_energyBreak1</sound>
-    <sound>sound\snd_energyBreak2</sound>
-    <sound>sound\snd_energyHit1</sound>
-    <sound>sound\snd_energyHit2</sound>
-    <sound>sound\snd_energyHit3</sound>
-    <sound>sound\snd_shoot1</sound>
-    <sound>sound\snd_click</sound>
-    <sound>sound\snd_hit1</sound>
-    <sound>sound\snd_hit2</sound>
-    <sound>sound\snd_beat</sound>
-    <sound>sound\snd_energygun1</sound>
-    <sound>sound\snd_energygun2</sound>
-    <sound>sound\snd_energygun3</sound>
-    <sound>sound\snd_energygun4</sound>
-    <sound>sound\snd_charge1</sound>
-    <sound>sound\snd_charge2</sound>
-    <sound>sound\snd_warning</sound>
-    <sound>sound\snd_fire</sound>
-    <sound>sound\snd_fire2</sound>
-    <sound>sound\snd_steam</sound>
-    <sound>sound\snd_break</sound>
+    <sounds name="Hit">
+      <sound>sound\snd_beat</sound>
+      <sound>sound\snd_hit1</sound>
+      <sound>sound\snd_hit2</sound>
+      <sound>sound\snd_energyHit1</sound>
+      <sound>sound\snd_energyHit2</sound>
+      <sound>sound\snd_energyHit3</sound>
+    </sounds>
+    <sounds name="Player">
+      <sound>sound\snd_click</sound>
+      <sound>sound\snd_shoot1</sound>
+      <sound>sound\snd_charge1</sound>
+      <sound>sound\snd_charge2</sound>
+      <sound>sound\snd_energygun1</sound>
+      <sound>sound\snd_energygun2</sound>
+      <sound>sound\snd_energygun3</sound>
+      <sound>sound\snd_energygun4</sound>
+      <sound>sound\snd_warning</sound>
+    </sounds>
+    <sounds name="Projectile">
+      <sound>sound\snd_fire</sound>
+      <sound>sound\snd_fire2</sound>
+      <sound>sound\snd_energyBreak1</sound>
+      <sound>sound\snd_energyBreak2</sound>
+    </sounds>
+    <sounds name="World">
+      <sound>sound\snd_steam</sound>
+      <sound>sound\snd_break</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprites name="Parts">
-      <sprite>sprites\spr_head01</sprite>
-      <sprite>sprites\spr_body01</sprite>
-      <sprite>sprites\spr_lArm01</sprite>
-      <sprite>sprites\spr_rArm01</sprite>
-      <sprite>sprites\spr_lLeg01</sprite>
-      <sprite>sprites\spr_rLeg01</sprite>
-      <sprite>sprites\spr_head02</sprite>
-      <sprite>sprites\spr_body02</sprite>
-      <sprite>sprites\spr_rArm02</sprite>
-      <sprite>sprites\spr_lArm02</sprite>
-      <sprite>sprites\spr_lLeg02</sprite>
-      <sprite>sprites\spr_rLeg02</sprite>
-      <sprite>sprites\spr_lArm04</sprite>
-      <sprite>sprites\spr_rArm04</sprite>
-      <sprite>sprites\spr_lArm05</sprite>
-      <sprite>sprites\spr_rArm05</sprite>
-      <sprite>sprites\spr_lArm06</sprite>
-      <sprite>sprites\spr_rArm06</sprite>
-      <sprite>sprites\spr_wheel</sprite>
+    <sprites name="Player">
+      <sprites name="Parts">
+        <sprite>sprites\spr_head01</sprite>
+        <sprite>sprites\spr_body01</sprite>
+        <sprite>sprites\spr_lArm01</sprite>
+        <sprite>sprites\spr_rArm01</sprite>
+        <sprite>sprites\spr_lLeg01</sprite>
+        <sprite>sprites\spr_rLeg01</sprite>
+        <sprite>sprites\spr_head02</sprite>
+        <sprite>sprites\spr_body02</sprite>
+        <sprite>sprites\spr_rArm02</sprite>
+        <sprite>sprites\spr_lArm02</sprite>
+        <sprite>sprites\spr_lLeg02</sprite>
+        <sprite>sprites\spr_rLeg02</sprite>
+        <sprite>sprites\spr_lArm04</sprite>
+        <sprite>sprites\spr_rArm04</sprite>
+        <sprite>sprites\spr_lArm05</sprite>
+        <sprite>sprites\spr_rArm05</sprite>
+        <sprite>sprites\spr_lArm06</sprite>
+        <sprite>sprites\spr_rArm06</sprite>
+        <sprite>sprites\spr_wheel</sprite>
+      </sprites>
+      <sprite>sprites\spr_noBody</sprite>
+      <sprite>sprites\spr_noHead</sprite>
+      <sprite>sprites\spr_cursor</sprite>
+    </sprites>
+    <sprites name="Projectiles">
+      <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_fire</sprite>
+      <sprite>sprites\spr_shieldBullet</sprite>
+      <sprite>sprites\spr_drill</sprite>
+      <sprite>sprites\spr_grapple</sprite>
+      <sprite>sprites\spr_magnetBall</sprite>
+      <sprite>sprites\spr_jet</sprite>
+      <sprite>sprites\spr_oil</sprite>
+    </sprites>
+    <sprites name="World">
+      <sprite>sprites\spr_savePoint</sprite>
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_wallD</sprite>
+      <sprite>sprites\spr_wallDestructable</sprite>
+      <sprite>sprites\spr_wallJunk</sprite>
+      <sprite>sprites\spr_floor</sprite>
+      <sprite>sprites\spr_floorWide</sprite>
+      <sprite>sprites\spr_wallTall</sprite>
+      <sprite>sprites\spr_sprinkler</sprite>
+      <sprite>sprites\spr_sprinklerMask</sprite>
+    </sprites>
+    <sprites name="Menu">
+      <sprite>sprites\spr_hud</sprite>
+      <sprite>sprites\spr_button</sprite>
+      <sprite>sprites\spr_hudArcade</sprite>
+      <sprite>sprites\spr_itemHead</sprite>
+      <sprite>sprites\spr_itemBody</sprite>
+      <sprite>sprites\spr_itemArm</sprite>
+      <sprite>sprites\spr_itemLeg</sprite>
+      <sprite>sprites\spr_dial</sprite>
+      <sprite>sprites\spr_heat</sprite>
+      <sprite>sprites\spr_healthMonitor</sprite>
+      <sprite>sprites\spr_static</sprite>
+      <sprite>sprites\spr_partSelect</sprite>
+      <sprite>sprites\spr_partSelectArcade</sprite>
+      <sprite>sprites\spr_box</sprite>
+    </sprites>
+    <sprites name="Items">
+      <sprite>sprites\spr_item</sprite>
+      <sprite>sprites\spr_wallDebris</sprite>
+      <sprite>sprites\spr_wallDestroyed</sprite>
       <sprite>sprites\spr_brokenBot</sprite>
     </sprites>
-    <sprite>sprites\spr_dummy</sprite>
-    <sprite>sprites\spr_noHead</sprite>
-    <sprite>sprites\spr_noBody</sprite>
-    <sprite>sprites\spr_bullet</sprite>
-    <sprite>sprites\spr_jet</sprite>
-    <sprite>sprites\spr_oil</sprite>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_wallDestructable</sprite>
-    <sprite>sprites\spr_wallD</sprite>
-    <sprite>sprites\spr_wallJunk</sprite>
-    <sprite>sprites\spr_wallDestroyed</sprite>
-    <sprite>sprites\spr_wallDebris</sprite>
-    <sprite>sprites\spr_wallTall</sprite>
-    <sprite>sprites\spr_barrier</sprite>
-    <sprite>sprites\spr_floorWide</sprite>
-    <sprite>sprites\spr_floor</sprite>
-    <sprite>sprites\spr_box</sprite>
-    <sprite>sprites\spr_fire</sprite>
-    <sprite>sprites\spr_dial</sprite>
-    <sprite>sprites\spr_heat</sprite>
-    <sprite>sprites\spr_static</sprite>
-    <sprite>sprites\spr_hud</sprite>
-    <sprite>sprites\spr_hudArcade</sprite>
-    <sprite>sprites\spr_healthMonitor</sprite>
-    <sprite>sprites\spr_shieldBullet</sprite>
-    <sprite>sprites\spr_drill</sprite>
-    <sprite>sprites\spr_grapple</sprite>
-    <sprite>sprites\spr_magnetBall</sprite>
-    <sprite>sprites\spr_savePoint</sprite>
-    <sprite>sprites\spr_item</sprite>
-    <sprite>sprites\spr_itemHead</sprite>
-    <sprite>sprites\spr_itemBody</sprite>
-    <sprite>sprites\spr_itemArm</sprite>
-    <sprite>sprites\spr_itemLeg</sprite>
-    <sprite>sprites\spr_menu</sprite>
-    <sprite>sprites\spr_menuArcade</sprite>
-    <sprite>sprites\spr_button</sprite>
-    <sprite>sprites\spr_01</sprite>
-    <sprite>sprites\spr_sprinkler</sprite>
-    <sprite>sprites\spr_sprinklerMask</sprite>
-    <sprite>sprites\spr_cursor</sprite>
-    <sprite>sprites\spr_hive</sprite>
-    <sprite>sprites\spr_bee</sprite>
+    <sprites name="Enemy">
+      <sprite>sprites\spr_dummy</sprite>
+      <sprite>sprites\spr_hive</sprite>
+      <sprite>sprites\spr_bee</sprite>
+    </sprites>
+    <sprites name="Unused">
+      <sprite>sprites\spr_barrier</sprite>
+      <sprite>sprites\spr_testChamberEnemy</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_arena</background>
-    <background>background\bg_fireRoom</background>
-    <background>background\bg_arena2</background>
-    <background>background\tiles_junk</background>
-    <background>background\background4</background>
+    <backgrounds name="Arcade">
+      <background>background\bg_arena</background>
+      <background>background\bg_arena2</background>
+      <background>background\bg_fireRoom</background>
+    </backgrounds>
+    <backgrounds name="Junkpile">
+      <background>background\tiles_junk</background>
+      <background>background\background4</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -119,82 +145,97 @@
     <font>fonts\fontDosBig</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_playerCollisions</object>
-    <object>objects\obj_enemy</object>
-    <object>objects\obj_head</object>
-    <object>objects\obj_body</object>
-    <object>objects\obj_lArm</object>
-    <object>objects\obj_rArm</object>
-    <object>objects\obj_backLeg</object>
-    <object>objects\obj_leg</object>
-    <object>objects\obj_particle</object>
-    <object>objects\obj_basicBullet</object>
-    <object>objects\obj_slam</object>
-    <object>objects\obj_spark</object>
-    <object>objects\obj_shield</object>
-    <object>objects\obj_drill</object>
-    <object>objects\obj_grapple</object>
-    <object>objects\obj_magnetBall</object>
-    <object>objects\obj_button</object>
-    <object>objects\obj_box</object>
-    <object>objects\obj_fire</object>
-    <object>objects\obj_oil</object>
-    <object>objects\obj_hud</object>
-    <object>objects\obj_drone</object>
-    <object>objects\obj_hive</object>
-    <object>objects\obj_bee</object>
-    <object>objects\obj_block</object>
-    <object>objects\obj_blockBreakable</object>
-    <object>objects\obj_blockJunk</object>
-    <object>objects\obj_testChamberBlock</object>
-    <object>objects\obj_testChamberFloor</object>
-    <object>objects\obj_tutorial</object>
-    <object>objects\obj_wall</object>
-    <object>objects\obj_floor</object>
-    <object>objects\obj_savePoint</object>
-    <object>objects\obj_testSavePoint</object>
-    <object>objects\obj_debris</object>
-    <object>objects\obj_gameStart</object>
-    <object>objects\obj_item</object>
-    <object>objects\obj_gear</object>
-    <object>objects\obj_model</object>
-    <object>objects\obj_partSelect</object>
-    <object>objects\obj_partSelectArcade</object>
-    <object>objects\obj_pickPart</object>
-    <object>objects\obj_buttonQuit</object>
-    <object>objects\obj_testChamberEnemy</object>
-    <object>objects\obj_testChamberBarrier</object>
-    <object>objects\obj_testChamberBad</object>
-    <object>objects\obj_testChamberFake</object>
-    <object>objects\obj_testChamberBoss</object>
-    <object>objects\obj_autoDoor</object>
-    <object>objects\obj_create</object>
-    <object>objects\obj_transition</object>
-    <object>objects\obj_camera</object>
-    <object>objects\obj_crosshair</object>
-    <object>objects\obj_sprinkler</object>
-    <object>objects\obj_pipe</object>
-    <object>objects\object52</object>
-    <object>objects\obj_darkRoom</object>
+    <objects name="World">
+      <object>objects\obj_block</object>
+      <object>objects\obj_wall</object>
+      <object>objects\obj_floor</object>
+      <object>objects\obj_blockBreakable</object>
+      <object>objects\obj_blockJunk</object>
+      <object>objects\obj_savePoint</object>
+      <object>objects\obj_autoDoor</object>
+      <object>objects\obj_sprinkler</object>
+      <object>objects\obj_darkRoom</object>
+    </objects>
+    <objects name="Enemy">
+      <object>objects\obj_enemy</object>
+      <object>objects\obj_hive</object>
+      <object>objects\obj_bee</object>
+      <object>objects\obj_drone</object>
+    </objects>
+    <objects name="Items">
+      <object>objects\obj_item</object>
+      <object>objects\obj_gear</object>
+      <object>objects\obj_particle</object>
+      <object>objects\obj_debris</object>
+    </objects>
+    <objects name="Player">
+      <object>objects\obj_playerCollisions</object>
+      <object>objects\obj_head</object>
+      <object>objects\obj_body</object>
+      <object>objects\obj_lArm</object>
+      <object>objects\obj_rArm</object>
+      <object>objects\obj_leg</object>
+      <object>objects\obj_backLeg</object>
+      <object>objects\obj_crosshair</object>
+    </objects>
+    <objects name="Projectiles">
+      <object>objects\obj_basicBullet</object>
+      <object>objects\obj_slam</object>
+      <object>objects\obj_shield</object>
+      <object>objects\obj_grapple</object>
+      <object>objects\obj_drill</object>
+      <object>objects\obj_magnetBall</object>
+      <object>objects\obj_spark</object>
+      <object>objects\obj_fire</object>
+      <object>objects\obj_oil</object>
+    </objects>
+    <objects name="Menu">
+      <object>objects\obj_gameStart</object>
+      <object>objects\obj_hud</object>
+      <object>objects\obj_camera</object>
+      <object>objects\obj_partSelect</object>
+      <object>objects\obj_partSelectArcade</object>
+      <object>objects\obj_model</object>
+      <object>objects\obj_pickPart</object>
+      <object>objects\obj_buttonChangeRoom</object>
+      <object>objects\obj_buttonQuit</object>
+    </objects>
+    <objects name="Unused">
+      <object>objects\obj_testSavePoint</object>
+      <object>objects\obj_testChamberEnemy</object>
+      <object>objects\obj_testChamberBarrier</object>
+      <object>objects\obj_testChamberBoss</object>
+      <object>objects\obj_testChamberFloor</object>
+      <object>objects\obj_testChamberBlock</object>
+      <object>objects\obj_tutorial</object>
+      <object>objects\obj_testChamberBad</object>
+      <object>objects\obj_testChamberFake</object>
+      <object>objects\obj_pipe</object>
+      <object>objects\obj_transition</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room_mainMenu0</room>
-    <room>rooms\room_advPartSelect1</room>
-    <room>rooms\room_advTutorial2</room>
-    <room>rooms\room_arcadeStart3</room>
-    <room>rooms\room_arcPartSelect4</room>
-    <room>rooms\room_arcadeArena5</room>
-    <room>rooms\room_arcadeArena6</room>
-    <room>rooms\room_quitGame7</room>
-    <room>rooms\room_advEndTut8</room>
-    <room>rooms\room_transition9</room>
-    <room>rooms\room_test10</room>
-    <room>rooms\room_testPartSelect11</room>
-    <room>rooms\adv_junkyard12</room>
-    <room>rooms\adv_junkyardR13</room>
+    <rooms name="Menu">
+      <room>rooms\rm_menu</room>
+      <room>rooms\rm_advPartSelect</room>
+      <room>rooms\rm_arcPartSelect</room>
+      <room>rooms\rm_testPartSelect</room>
+      <room>rooms\rm_test</room>
+    </rooms>
+    <rooms name="Adventure">
+      <room>rooms\rm_advJunkyard1</room>
+      <room>rooms\rm_advJunkyard2</room>
+    </rooms>
+    <rooms name="Arcade">
+      <room>rooms\rm_arcadeArena1</room>
+      <room>rooms\rm_arcadeArena2</room>
+    </rooms>
+    <rooms name="Unused">
+      <room>rooms\rm_advTutorial</room>
+    </rooms>
   </rooms>
   <constants number="8">
-    <constant name="c_magnesium">make_color_rgb(96,128,128);</constant>
+    <constant name="c_magnesium">make_color_rgb(96,128,128)</constant>
     <constant name="c_aluminum">make_color_rgb(192,192,224)</constant>
     <constant name="c_titanium">make_color_rgb(224,192,160)</constant>
     <constant name="c_chromium">make_color_rgb(192,224,224)</constant>

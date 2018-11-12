@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>energy=0;
+            <string>/// Death By Proxy
+energy=0;
 </string>
           </argument>
         </arguments>
@@ -48,8 +49,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale=0.02*energy+1;
+            <string>/// Shield Movement and Arm Tracking
+
+// Scale Size with Remaining Energy
+image_xscale=0.02*energy+1;
 image_yscale=0.02*energy+1;
+
+// Follow Arm Rotation
 if(attached!=0)
 {
     direction=attached.direction;
@@ -57,23 +63,73 @@ if(attached!=0)
     x=attached.x+48*cos(degtorad(direction));
     y=attached.y-48*sin(degtorad(direction));
 }
-else
+else // SCHuT TiME
 {
     energy-=2;
     speed=0.125*energy+5;
+}
+
+// Player Releases Mouse Button -&gt; SCHuT TiME
+if(attached.attached.player=1)
+{ 
+    if ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || 
+        (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))
+    {
+        attached=0;
+        image_blend=c_purple;
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision with Blocks
+
+if(attached=0)
+{
     if(position_meeting(x,y,obj_block))
     {
         energy/=2;
     }
-    //effect_create_above(ef_spark,x,y,0.1,merge_color(c_purple,c_black,0.5));
 }
-// if((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))
-// if((attached.object_index=obj_lArm &amp;&amp; not gamepad_check_button(1,1)) || (attached.object_index=obj_rArm &amp;&amp; not gamepad_check_button(1,4)))
-if((attached.attached.player=1 &amp;&amp; ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))) || (attached.attached.player=2 &amp;&amp; ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))))
-{
-    attached=0;
-    image_blend=c_purple;
-}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Death Handler
 if(energy&lt;=0 || attached.hp&lt;=0)
 {
     instance_destroy();
@@ -101,7 +157,8 @@ if(energy&lt;=0 || attached.hp&lt;=0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(attached=0)
+            <string>/// Damage Breakable Walls and Lose Energy
+if(attached=0)
 {
     other.hp-=0.2*energy;
     if(other.hp&gt;0)
@@ -143,7 +200,7 @@ if(energy&lt;=0 || attached.hp&lt;=0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Reflect Fire
 if(abs(other.direction-direction)&gt;35)
 {
     energy-=0.0007*other.temperature;
@@ -172,15 +229,19 @@ if(abs(other.direction-direction)&gt;35)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(energy&gt;=2*other.attack &amp;&amp; team!=other.team)
+            <string>/// Block Bullets
+// Block Bullet and Lose Energy
+if(energy&gt;=2*other.attack &amp;&amp; team!=other.team)
 {
     energy-=2*other.attack;
     sound_play(snd_energyHit3);
     with(other)
     {
-        instance_destroy();
+        alarm[0]=1;
     }
 }
+
+// Death Handler
 if(energy&lt;2*other.attack &amp;&amp; team!=other.team)
 {
     instance_destroy();

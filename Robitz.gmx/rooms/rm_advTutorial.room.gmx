@@ -26,9 +26,9 @@
     <showViews>0</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>1</page>
-    <xoffset>20</xoffset>
-    <yoffset>21</yoffset>
+    <page>0</page>
+    <xoffset>1388</xoffset>
+    <yoffset>-197</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -1051,12 +1051,12 @@
     <instance objName="obj_testChamberBlock" x="3360" y="320" name="inst_7CC6E1FE" locked="0" code="if(spawnPoint=103010)&#xA;{&#xA;    instance_destroy();&#xA;}" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_testChamberBlock" x="3392" y="320" name="inst_A735668F" locked="0" code="if(spawnPoint=103010)&#xA;{&#xA;    instance_destroy();&#xA;}" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_testChamberBlock" x="3424" y="320" name="inst_27A1014D" locked="0" code="if(spawnPoint=103010)&#xA;{&#xA;    instance_destroy();&#xA;}" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_autoDoor" x="3360" y="352" name="inst_0275C60D" locked="0" code="destination=10; //Room Number&#xA;destinationX=-1; //X Position; Set to -1 to go to player's x&#xA;destinationY=0; //Y Position; Set to -1 to go to player's y&#xA;destinationTransition=&quot;&quot;;&#xA;destinationXOffset=-3328; //X Offset when destination is set to -1; Use to adjust for misaligned rooms, set to 0 otherwise&#xA;destinationYOffset=0; //Y Offset when destination is set to -1; Use to adjust for misaligned rooms, set to 0 otherwise&#xA;&#xA;// Transition Types&#xA;//0 = no effect&#xA;//1 = Create from left&#xA;//2 = Create from right&#xA;//3 = Create from top&#xA;//4 = Create from bottom&#xA;//5 = Create from center&#xA;//6 = Shift from left&#xA;//7 = Shift from right&#xA;//8 = Shift from top&#xA;//9 = Shift from bottom&#xA;//10 = Interlaced from left&#xA;//11 = Interlaced from right&#xA;//12 = Interlaced from top&#xA;//13 = Interlaced from bottom&#xA;//14 = Push from left&#xA;//15 = Push from right&#xA;//16 = Push from top&#xA;//17 = Push from bottom&#xA;//18 = Rotate to the left&#xA;//19 = Rotate to the right&#xA;//20 = Blend the rooms&#xA;//21 = Fade out and in" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_autoDoor" x="3360" y="352" name="inst_0275C60D" locked="0" code="destination=10; //Room Number&#xA;destinationX=-1; //X Position; Set to -1 to go to player's x&#xA;destinationY=0; //Y Position; Set to -1 to go to player's y&#xA;destinationTransition=&quot;&quot;;&#xA;destinationXOffset=-3328; //X Offset when destination is set to -1; Use to adjust for misaligned rooms, set to 0 otherwise&#xA;destinationYOffset=0; //Y Offset when destination is set to -1; Use to adjust for misaligned rooms, set to 0 otherwise&#xA;&#xA;// Transition Types&#xA;//0 = no effect&#xA;//1 = Create from left&#xA;//2 = Create from right&#xA;//3 = Create from top&#xA;//4 = Create from bottom&#xA;//5 = Create from center&#xA;//6 = Shift from left&#xA;//7 = Shift from right&#xA;//8 = Shift from top&#xA;//9 = Shift from bottom&#xA;//10 = Interlaced from left&#xA;//11 = Interlaced from right&#xA;//12 = Interlaced from top&#xA;//13 = Interlaced from bottom&#xA;//14 = Push from left&#xA;//15 = Push from right&#xA;//16 = Push from top&#xA;//17 = Push from bottom&#xA;//18 = Rotate to the left&#xA;//19 = Rotate to the right&#xA;//20 = Blend the rooms&#xA;//21 = Fade out and in" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_testChamberEnemy" x="2976" y="224" name="inst_C617E5DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_testChamberEnemy" x="2880" y="288" name="inst_8DEA76EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_testChamberEnemy" x="2880" y="224" name="inst_7768F451" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_testChamberEnemy" x="2976" y="288" name="inst_0E76DAF3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_savePoint" x="96" y="224" name="inst_0E38EAB2" locked="0" code="visible=0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_savePoint" x="96" y="224" name="TutorialStart" locked="0" code="visible=0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_savePoint" x="3264" y="192" name="inst_DFA37F5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockBreakable" x="160" y="256" name="inst_9385A464" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockBreakable" x="192" y="256" name="inst_31B703CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

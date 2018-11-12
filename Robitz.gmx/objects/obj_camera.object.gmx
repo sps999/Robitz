@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_hborder[view_current]=0.5*view_wview[view_current];
+            <string>/// View Borders
+
+view_hborder[view_current]=0.5*view_wview[view_current];
 view_vborder[view_current]=0.5*view_hview[view_current];
 </string>
           </argument>
@@ -49,7 +51,9 @@ view_vborder[view_current]=0.5*view_hview[view_current];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction=point_direction(attached.x,attached.y,mouse_x,mouse_y);
+            <string>/// Camera Position
+
+direction=point_direction(attached.x,attached.y,mouse_x,mouse_y);
 
 x=attached.x + attached.hspeed;// + 0.2*distance_to_point(mousex,attached.x)*cos(degtorad(direction));
 y=attached.y + attached.vspeed;// - 0.2*distance_to_point(mousey,attached.y)*sin(degtorad(direction));

@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>temperature=1200;
+            <string>/// Fire Properties - Starting Temperature
+
+temperature=1200;
 </string>
           </argument>
         </arguments>
@@ -48,16 +50,63 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>temperature-=21;
+            <string>/// Fire Movement
+
+temperature-=21;
 if(speed&gt;0)
 {
     speed=image_yscale*temperature/100;
     vspeed+=0.2;
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy Fire on 0 degrees
+
 if(temperature&lt;=0)
 {
     instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Fire Visual Effects
+
 if(irandom(0.25*instance_number(obj_fire))=0 &amp;&amp; speed=0)
 {
     effect_create_above(ef_smokeup,x+random_range(-8,8),y+random_range(-8,8),0.25*image_yscale,merge_color(c_black,c_dkgray,random(1)));
@@ -77,6 +126,28 @@ if(temperature&gt;1200)
         effect_create_above(ef_flare,x+random_range(-8,8)+hspeed,y+random_range(-8,8)+vspeed,0.55*image_yscale,c_yellow);
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision Events
+
 if(collision_point(x+hspeed,y+vspeed,obj_block,false,true) &amp;&amp; speed&gt;0)
 {
     temperature-=200;
@@ -108,7 +179,9 @@ if(collision_point(x+hspeed,y+vspeed,obj_magnetBall,false,true) &amp;&amp; speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.hp-=0.0003*temperature;
+            <string>/// Burn Trash on contact
+
+other.hp-=0.0003*temperature;
 if(other.hp&gt;0)
 {
     other.image_blend = merge_colour(c_red, c_white, other.hp/100);
@@ -142,7 +215,9 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.hp-=0.0003*temperature;
+            <string>/// Damage blocks on Contact
+
+other.hp-=0.0003*temperature;
 if(other.hp&gt;0)
 {
     other.image_index=ceil(0.03*(100-other.hp));

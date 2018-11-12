@@ -164,6 +164,7 @@ if(myLeg.hover=1)
             // Magnet Hover
             if(legChoice[player-1]=6)
             {
+                legspeed*=0.7;
                 jumpspeed=-myLeg.baseHover*(1-totalMass/64000);
             }
         }

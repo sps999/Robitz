@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>/// Go To next Room on Player Contact
+
+/*
 //       ------- Door Creation Code Template --------
   
 destination=""; //Room Number

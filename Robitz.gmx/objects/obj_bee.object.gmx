@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>temperature=21;
+            <string>/// Bee Properties 
+
+temperature=21;
 hp=2;
 prevhp=hp;
 image_speed=0;
@@ -64,7 +66,9 @@ team=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(aggro&lt;0)
+            <string>/// On-Hit Increase Aggro Greatly
+
+if(aggro&lt;0)
     aggro=0;
 
 aggro+=100 + 4*(prevhp - hp);
@@ -132,9 +136,10 @@ prevhp = hp;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hp&lt;=0)
+            <string>/// Check for Death and Create gears on Death
+
+if(hp&lt;=0)
 {
-    instance_destroy();
     repeat(irandom(3))
     {
         var i = instance_create(x,y,obj_gear);
@@ -146,7 +151,30 @@ prevhp = hp;
     effect_create_above(ef_firework,x,y,0.5,c_orange);
     effect_create_above(ef_explosion,x,y,0.5,c_orange);
     effect_create_above(ef_explosion,x,y,0.5,c_white);
+    
+    instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Bee Movement
 
 if(instance_exists(obj_hive))
 {

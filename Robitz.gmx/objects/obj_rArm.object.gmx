@@ -11,26 +11,6 @@
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Periodic Sound Effects</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -45,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// ================================================
+            <string>/// Periodic Sound Effects Timer
+
+// ================================================
 //     Weapon Sound effects for interval times
 // ================================================
 
@@ -80,26 +62,6 @@ if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=2) || (object
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Arm Properties</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -114,7 +76,8 @@ if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=2) || (object
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp=100;
+            <string>/// Arm Properties
+hp=100;
 temperature=21; //Base Temperature
 electricity=0;
 image_speed=0;
@@ -243,78 +206,10 @@ hitSpeed=0;
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>--Remove left arm on Game Start</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*if(spawnPoint=GameStart &amp;&amp; object_index=obj_lArm)
-{
-    sprite_index = noone;
-    image_index=0;
-    volume=0.1;
-    mass=1;
-    hp=0;
-}*/
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Rotation</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -329,7 +224,9 @@ hitSpeed=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction=point_direction(attached.x,attached.y,attached.myCross.x,attached.myCross.y)
+            <string>/// Arm Rotation and Flipping
+
+direction=point_direction(attached.x,attached.y,attached.myCross.x,attached.myCross.y)
 image_angle=direction;
 
 // Flip arms when facing Left, and darken back arm
@@ -426,7 +323,7 @@ else
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>1</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -443,26 +340,6 @@ else
           <argument>
             <kind>0</kind>
             <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Weapons</string>
           </argument>
         </arguments>
       </action>
@@ -482,23 +359,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if(electricity&lt;=0 &amp;&amp; attached.electricity&lt;=0)
-{
-    image_angle=point_direction(x,y,attached.myCross.x,attached.myCross.y);
-}
-if(electricity&gt;0 || attached.electricity&gt;0)
-{
-    image_angle+=37.5;
-    electricity-=1;
-    if(electricity&lt;0)
-    {
-        electricity=0;
-    }
-}*/
-
-//----------------------------------------------
-//              Destruction
-//----------------------------------------------
+            <string>/// Damage Handling
 
 if(hp&lt;=0 &amp;&amp; sprite_index!=noone)
 {
@@ -525,107 +386,126 @@ if(hp&lt;=0)
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Weapons
+
 //=====================================================
 //               Click Mouse Button
 //=====================================================
 
-if(electricity&lt;=0 &amp;&amp; attached.electricity&lt;=0)
+if((object_index=obj_rArm &amp;&amp; mouse_check_button_pressed(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button_pressed(mb_left)))
+// if((object_index=obj_rArm &amp;&amp; gamepad_check_button_pressed(1,4)) || (object_index=obj_lArm &amp;&amp; gamepad_check_button_pressed(1,1)))
+//if((attached.player=1 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button_pressed(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button_pressed(mb_left)))) || (attached.player=2 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button_pressed(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button_pressed(mb_left)))))
 {
-    if((object_index=obj_rArm &amp;&amp; mouse_check_button_pressed(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button_pressed(mb_left)))
-    // if((object_index=obj_rArm &amp;&amp; gamepad_check_button_pressed(1,4)) || (object_index=obj_lArm &amp;&amp; gamepad_check_button_pressed(1,1)))
-    //if((attached.player=1 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button_pressed(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button_pressed(mb_left)))) || (attached.player=2 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button_pressed(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button_pressed(mb_left)))))
+    if(energy&gt;=energyCost)
     {
-        if(energy&gt;=energyCost)
-        {
-        
-            //-----------------------------------------------------
-            //                  Flamethrower
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=2) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=2))
-            {
-                if(subAttack=1)
-                {
-                    sound_play(snd_fire2);
-                    if(alarm[1]&lt;1 || alarm[1] &gt; 12)
-                    {
-                        alarm[1]=1;
-                    }
-                    
-                }
-            }
     
-            //-----------------------------------------------------
-            //                  Energy Shield
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=3) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=3))
-            {
-                if(subAttack=1)
-                {
-                    i=instance_create(x+(lengthdir_x(20,direction)),y+(lengthdir_y(20,direction)),obj_shield);
-                    i.attached=id;
-                    i.team=attached.team; //Stops from shooting self
-                    i.energy=energy;
-                    energy=0;
-                }
-            }
-            
-            //-----------------------------------------------------
-            //                  Drill
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=4) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=4))
-            {
-                if(subAttack=1)
-                {
-                    i=instance_create(x+(lengthdir_x(20,direction)),y+(lengthdir_y(20,direction)),obj_drill);
-                    i.attached=id;
-                    i.team=attached.team; //Stops from shooting self
-                    i.attack=1;
-                    energy-=1;
-                    image_index=1;
-                }
-            }
-            
-            //-----------------------------------------------------
-            //                  Grapple
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=5) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=5))
-            {
-                if(subAttack=1 &amp;&amp; energy = 100)
-                {
-                    energy -= 1;
-                    i=instance_create(x,y,obj_grapple);
-                    i.direction=direction;
-                    i.image_angle=direction;
-                    i.speed=20;
-                    i.attack=10;
-                    i.attached=id;
-                    i.team=attached.team; //Stops from shooting self
-                    i.depth = depth;
-                    if(object_index=obj_lArm) i.isLeft = true; else i.isLeft = false;
-                    image_index=1;
-                }
-            }
-            
-            //-----------------------------------------------------
-            //                  Magnet
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=6) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=6))
-            {
-                if(subAttack=1)
-                {
-                    i=instance_create(x+(lengthdir_x(20,direction)),y+(lengthdir_y(20,direction)),obj_magnetBall);
-                    i.attached=id;
-                    i.team=attached.team; //Stops from shooting self
-                    i.attack = 5;
-                    i.isLaunched=false;
-                    energy-=energyCost;
-                }
-            }
-        }
-        else
+        //-----------------------------------------------------
+        //                  Flamethrower
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=2) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=2))
         {
-            sound_play(snd_click);
+            if(subAttack=1)
+            {
+                sound_play(snd_fire2);
+                if(alarm[1]&lt;1 || alarm[1] &gt; 12)
+                {
+                    alarm[1]=1;
+                }
+                
+            }
         }
+        
+        //-----------------------------------------------------
+        //                  Energy Shield
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=3) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=3))
+        {
+            if(subAttack=1)
+            {
+                i=instance_create(x+(lengthdir_x(20,direction)),y+(lengthdir_y(20,direction)),obj_shield);
+                i.attached=id;
+                i.team=attached.team; //Stops from shooting self
+                i.energy=energy;
+                energy=0;
+            }
+        }
+        
+        //-----------------------------------------------------
+        //                  Drill
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=4) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=4))
+        {
+            if(subAttack=1)
+            {
+                i=instance_create(x+(lengthdir_x(20,direction)),y+(lengthdir_y(20,direction)),obj_drill);
+                i.attached=id;
+                i.team=attached.team; //Stops from shooting self
+                i.attack=1;
+                energy-=1;
+                image_index=1;
+            }
+        }
+        
+        //-----------------------------------------------------
+        //                  Grapple
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=5) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=5))
+        {
+            if(subAttack=1 &amp;&amp; energy = 100)
+            {
+                energy -= 1;
+                i=instance_create(x,y,obj_grapple);
+                i.direction=direction;
+                i.image_angle=direction;
+                i.speed=20;
+                i.attack=10;
+                i.attached=id;
+                i.team=attached.team; //Stops from shooting self
+                i.depth = depth;
+                if(object_index=obj_lArm) i.isLeft = true; else i.isLeft = false;
+                image_index=1;
+            }
+        }
+        
+        //-----------------------------------------------------
+        //                  Magnet
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=6) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=6))
+        {
+            if(subAttack=1)
+            {
+                i=instance_create(x+(lengthdir_x(20,direction)),y+(lengthdir_y(20,direction)),obj_magnetBall);
+                i.attached=id;
+                i.team=attached.team; //Stops from shooting self
+                i.attack = 5;
+                i.isLaunched=false;
+                energy-=energyCost;
+            }
+        }
+    }
+    else
+    {
+        sound_play(snd_click);
     }
 }
 
@@ -633,96 +513,83 @@ if(electricity&lt;=0 &amp;&amp; attached.electricity&lt;=0)
 //             Hold Mouse Button
 //=====================================================
 
-if(electricity&lt;=0 &amp;&amp; attached.electricity&lt;=0)
+// if((object_index=obj_rArm &amp;&amp; mouse_check_button(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button(mb_left)))
+// if((object_index=obj_rArm &amp;&amp; gamepad_check_button(1,4)) || (object_index=obj_lArm &amp;&amp; gamepad_check_button(1,1)))
+if((attached.player=1 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button(mb_left)))) || (attached.player=2 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button(mb_left)))))
 {
-    // if((object_index=obj_rArm &amp;&amp; mouse_check_button(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button(mb_left)))
-    // if((object_index=obj_rArm &amp;&amp; gamepad_check_button(1,4)) || (object_index=obj_lArm &amp;&amp; gamepad_check_button(1,1)))
-    if((attached.player=1 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button(mb_left)))) || (attached.player=2 &amp;&amp;((object_index=obj_rArm &amp;&amp; mouse_check_button(mb_right)) || (object_index=obj_lArm &amp;&amp; mouse_check_button(mb_left)))))
+    energyRegen=baseActiveEnergyRegen*(1-0.9*temperature/meltingPoint); //If Click-Shooter, set baseActiveRegen to the same value as baseRegen
+    if(energy&gt;=energyCost)
     {
-        energyRegen=baseActiveEnergyRegen*(1-0.9*temperature/meltingPoint); //If Click-Shooter, set baseActiveRegen to the same value as baseRegen
-        if(energy&gt;=energyCost)
+    
+        //-----------------------------------------------------
+        //              Pellet Shooter Charge
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=1) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=1))
         {
-        
-            //-----------------------------------------------------
-            //              Pellet Shooter Charge
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=1) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=1))
+            if(meltingPoint&gt;temperature)
             {
-                if(meltingPoint&gt;temperature)
-                {
-                    energy+= (-1*energyCost) + (temperature/meltingPoint);
-                }
-                if(energy&lt;=0)
-                {
-                    energy=0;
-                    alarm[1]=1; // Charge Sound
-                } 
-                else if(alarm[1]&lt;1 || alarm[1] &gt; 6+(energy/maxEnergy))
-                {
-                    alarm[1]=6+(energy/maxEnergy);
-                    image_blend=c_silver;
-                }
-                
-                if(temperature&lt;2000+500*(maxEnergy-energy))
-                {
-                    temperature+=(-0.005/heatResist)*(temperature-(2000+200*(maxEnergy-energy))); //Temporary Values
-                }
-                if(alarm[1]&lt;=0)
-                {
-                    alarm[1]=6;
-                }
-                
+                energy+= (-1*energyCost) + (temperature/meltingPoint);
+            }
+            if(energy&lt;=0)
+            {
+                energy=0;
+                alarm[1]=1; // Charge Sound
+            } 
+            else if(alarm[1]&lt;1 || alarm[1] &gt; 6+(energy/maxEnergy))
+            {
+                alarm[1]=6+(energy/maxEnergy);
+                image_blend=c_silver;
             }
             
-            //-----------------------------------------------------
-            //                  Flamethrower
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=2) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=2))
+            if(temperature&lt;2000+500*(maxEnergy-energy))
             {
-                energy-=energyCost;
-                //----------------Flamethrower----------------
-                if(subAttack=1)
+                temperature+=(-0.005/heatResist)*(temperature-(2000+200*(maxEnergy-energy))); //Temporary Values
+            }
+            if(alarm[1]&lt;=0)
+            {
+                alarm[1]=6;
+            }
+            
+        }
+        
+        //-----------------------------------------------------
+        //                  Flamethrower
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=2) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=2))
+        {
+            energy-=energyCost;
+            //----------------Flamethrower----------------
+            if(subAttack=1)
+            {
+                i=instance_create(x+(lengthdir_x(16,direction)),y+(lengthdir_y(16,direction)),obj_fire);
+                i.direction=direction+random_range(-10,10);
+                i.speed=10;
+                i.temperature=1200;
+                
+                // Sound Effect
+                if(alarm[1]&lt;1 || alarm[1] &gt; 10)
                 {
-                    i=instance_create(x+(lengthdir_x(16,direction)),y+(lengthdir_y(16,direction)),obj_fire);
+                    alarm[1]=10;
+                }
+            }
+            
+            //--------------------Oil----------------------
+            if(subAttack=2)
+            {
+                if(not collision_line(x,y,x+(lengthdir_x(16,direction)),y+(lengthdir_y(16,direction)),obj_block,true,true))
+                {
+                    i=instance_create(x+(lengthdir_x(16,direction)),y+(lengthdir_y(16,direction)),obj_oil);
                     i.direction=direction+random_range(-10,10);
                     i.speed=10;
-                    i.temperature=1200;
-                    
-                    // Sound Effect
-                    if(alarm[1]&lt;1 || alarm[1] &gt; 10)
-                    {
-                        alarm[1]=10;
-                    }
-                }
-                /*----------------Flameball----------------
-                if(subAttack=2)
-                {
-                    repeat (16)
-                    {
-                        i=instance_create(x+(lengthdir_x(20+random(80),point_direction(x,y,attached.myCross.x,attached.myCross.y))),y+(lengthdir_y(20+random(80),point_direction(x,y,attached.myCross.x,attached.myCross.y))),obj_fire);
-                        i.direction=point_direction(x,y,attached.myCross.x,attached.myCross.y)+random_range(-5,5);
-                        i.speed=10;
-                        i.temperature=1800;
-                    }
-                }*/
-                //----------------Oil----------------
-                if(subAttack=2)
-                {
-                    if(not collision_line(x,y,x+(lengthdir_x(16,direction)),y+(lengthdir_y(16,direction)),obj_block,true,true))
-                    {
-                        i=instance_create(x+(lengthdir_x(16,direction)),y+(lengthdir_y(16,direction)),obj_oil);
-                        i.direction=direction+random_range(-10,10);
-                        i.speed=10;
-                    }
                 }
             }
-            //-----------------------------------------------------
-            //                  Drill Energy Cost
-            //-----------------------------------------------------
-            if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=4) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=4))
-            {
-                energy-=energyCost;
-            }
+        }
+        //-----------------------------------------------------
+        //                  Drill Energy Cost
+        //-----------------------------------------------------
+        if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=4) || (object_index=obj_lArm &amp;&amp; lArmChoice[attached.player-1]=4))
+        {
+            energy-=energyCost;
         }
     }
 }
@@ -811,6 +678,7 @@ if((attached.player=1 &amp;&amp;((object_index=obj_rArm &amp;&amp; keyboard_chec
     case 3: energyCost=subEnergyCost3; break;
     }
 }
+
 if(energyRegen&lt;0) //Disallow negative Energy Levels
 {
     energyRegen=0;

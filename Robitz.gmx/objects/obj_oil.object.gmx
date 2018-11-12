@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>/// Death by Proxy
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -48,11 +50,43 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_blend=c_black;
+            <string>/// Oil max Speed and Instance Count
+
+image_blend=c_black;
 if(vspeed&gt;10)
 {
     vspeed=10;
 }
+
+if(instance_number(obj_oil)&gt;999)
+{
+    with(instance_find(obj_oil,0))
+    {
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision Events with Blocks
+
 if(image_yscale=1)
 {
     vspeed+=0.5;
@@ -82,6 +116,29 @@ if(image_yscale=1)
         image_yscale=0.5;
     }
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision Events - Ignite when touching Fire
+
 if(place_meeting(x,y,obj_fire))
 {
     i=instance_create(x,y,obj_fire);
@@ -99,13 +156,7 @@ if(place_meeting(x,y,obj_fire))
     }
     instance_destroy();
 }
-if(instance_number(obj_oil)&gt;999)
-{
-    with(instance_find(obj_oil,0))
-    {
-        instance_destroy();
-    }
-}
+
 if(image_yscale=0.5)
 {
     if(collision_rectangle(x,y-1,x,y+1,obj_oil,true,true))

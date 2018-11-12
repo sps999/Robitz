@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player=1;
+            <string>/// Draw Part Icon with Mouse Interactions
+
+player=1;
 draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,0,image_blend,1);
 if(unlock[choiceType,choice]=0)
 {

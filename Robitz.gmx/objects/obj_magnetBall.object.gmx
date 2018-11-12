@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 10;
+            <string>/// Death by Proxy
+
+speed = 10;
 instance_destroy();
 sound_play(snd_energyHit2);
 </string>
@@ -50,15 +52,18 @@ sound_play(snd_energyHit2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 10;
+            <string>/// Magnetball Movement and Cursor Tracking
 
+// Scale Size with attack
 image_xscale=1+0.02*(attack);
 image_yscale=1+0.02*(attack);
 
+// Track Mouse until Mouse Button Release
 if(attached.attached.player=1)
 {
-    if( isLaunched=false &amp;&amp; ((lArmChoice[attached.attached.player-1]=6 &amp;&amp; mouse_check_button(mb_left)) || 
-       (rArmChoice[attached.attached.player-1]=6 &amp;&amp; mouse_check_button(mb_right))))
+    if( isLaunched=false &amp;&amp; 
+        ((lArmChoice[attached.attached.player-1]=6 &amp;&amp; mouse_check_button(mb_left)) || 
+         (rArmChoice[attached.attached.player-1]=6 &amp;&amp; mouse_check_button(mb_right))))
     {
         speed = 0.2 * point_distance(x,y,attached.attached.myCross.x,attached.attached.myCross.y);
         if(speed &gt; 10)
@@ -82,6 +87,61 @@ if(attached.attached.player=1)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision with Blocks
+
+if(attached=0)
+{
+    if(position_meeting(x,y,obj_block))
+    {
+        alarm[0] = 1;
+        speed=0;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_fire">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Carry Fire and create Fireball
+
+other.direction = point_direction(other.x,other.y,x,y);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_magnetBall">
       <action>
@@ -100,7 +160,9 @@ if(attached.attached.player=1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(attack &gt; other.attack)
+            <string>/// Combine magnetballs and get Bigger
+
+if(attack &gt; other.attack)
 {
     if(isLaunched = false)
     {
@@ -125,69 +187,6 @@ else if(attack = other.attack)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_block">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(bbox_left-other.bbox_right&gt;1)
-{
-    x=other.bbox_right;
-}
-if(bbox_right-other.bbox_left&lt;-1)
-{
-    x=other.bbox_left;
-}
-if(bbox_top-other.bbox_bottom&gt;1)
-{
-    y=other.bbox_bottom;
-}
-if(bbox_bottom-other.bbox_top&lt;-1)
-{
-    y=other.bbox_top;
-}
-alarm[0] = 1;
-speed=0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_fire">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>other.direction = point_direction(other.x,other.y,x,y);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_grapple">
       <action>
         <libid>1</libid>
@@ -205,7 +204,9 @@ speed=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.attack &gt; 0 &amp;&amp; other.attached.energy &gt; 0)
+            <string>/// Carry Grapple in Magnetball
+
+if(other.attack &gt; 0 &amp;&amp; other.attached.energy &gt; 0)
 {
     other.direction = direction;
     other.x = x;

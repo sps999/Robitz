@@ -74,7 +74,7 @@ if(spawnPoint=id)
             {
                 alarm[0]=0;
             }
-            room_goto(5); //Adventure Part Select
+            room_goto(rm_testPartSelect); //Adventure Part Select
         }
     }
 }

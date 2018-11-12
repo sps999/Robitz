@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>temperature=12;
-cooldown=100;
+            <string>/// Properties
+
+temperature=12;
 </string>
           </argument>
         </arguments>
@@ -49,13 +50,11 @@ cooldown=100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>repeat(6)
+            <string>/// Particle Effects
+
+repeat(6)
 {
         part_particles_create(global.P_System, x+15, y+5, global.waterSpray, 1);
-}
-if(cooldown&gt;0)
-{
-    cooldown-=1;
 }
 </string>
           </argument>

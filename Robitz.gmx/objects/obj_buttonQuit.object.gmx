@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=0;
+            <string>/// Freeze Animations
+image_speed=0;
 </string>
           </argument>
         </arguments>
@@ -48,7 +49,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index=buttonImage;
+            <string>/// Mouse Hovering and Game End
+
+image_index=buttonImage;
 if(position_meeting(mouse_x,mouse_y,self))
 {
     if(mouse_check_button(mb_left))

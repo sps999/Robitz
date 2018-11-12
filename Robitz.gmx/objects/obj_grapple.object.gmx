@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attached.energy = 100;
+            <string>/// Ready Player Grapple
+attached.energy = 100;
 attached.image_index = 0;
 </string>
           </argument>
@@ -49,7 +50,9 @@ attached.image_index = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attack=0;
+            <string>/// Reel in on Death
+
+attack=0;
 speed = -8;
 if(distance_to_point(attached.x,attached.y) &lt; 12)
 {
@@ -66,7 +69,7 @@ else
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -83,49 +86,32 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(attached.hp&lt;=0 )
+            <string>/// Grapple Movement
+
+depth = attached.depth;
+image_angle = direction;
+
+if(attached.hp&lt;=0 )
 {
-    attached.image_index=0;
     instance_destroy();
 }
 
+// Grapple Max Distance Reel
 attached.energy = 100 - 0.5 * distance_to_point(attached.x,attached.y);
 if(attached.energy &lt; 0)
     attached.energy = 0;
 
+// Reel in on Mouse Release or Distance Maxed
 if(attached.attached.player=1)
 {
-    if (attached.energy &lt;= 0 || (isLeft &amp;&amp; not mouse_check_button(mb_left)) || (!isLeft &amp;&amp; not mouse_check_button(mb_right)))
+    if (attached.energy &lt;= 0 || 
+     (isLeft &amp;&amp; not mouse_check_button(mb_left)) || 
+    (!isLeft &amp;&amp; not mouse_check_button(mb_right)))
     {
         attack = 0;
         alarm[0] = 1;
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>depth = attached.depth;
-image_angle = direction;
-
 </string>
           </argument>
         </arguments>
@@ -148,7 +134,8 @@ image_angle = direction;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.hp&gt;0)
+            <string>/// No Latching to Garbage
+if(other.hp&gt;0)
 {
     if(bbox_left-other.bbox_right&gt;16)
     {
@@ -206,7 +193,9 @@ speed=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if( attack &gt; 0)
+            <string>/// Latch to Block -  Damage block over time
+
+if( attack &gt; 0)
 {
     other.hp-=0.1*attack;
     if(other.hp&gt;0)
@@ -271,7 +260,9 @@ speed=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(attack &gt; 0)
+            <string>/// Latch to Block
+
+if(attack &gt; 0)
 {
     speed = 0;
     
@@ -303,58 +294,6 @@ speed=0;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_basicBullet">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(id&lt;other.id &amp;&amp; speed&gt;0 &amp;&amp; team=other.team)
-{
-    if(abs(hspeed)&gt;abs(vspeed))
-    {
-        if(hspeed&gt;0)
-        {
-            x=other.bbox_left+(bbox_right-bbox_left);
-        } else x=other.bbox_right+(bbox_left-bbox_right);
-    }
-    else
-    {
-        if(vspeed&gt;0)
-        {
-            y=other.bbox_bottom+(bbox_top-bbox_bottom);
-        } else y=other.bbox_top+(bbox_bottom-bbox_top);
-    }
-}
-if(team!=other.team)
-{
-    if(abs(attack-other.attack)&lt;5)
-    {
-        alarm[0]=1;
-        other.alarm[0]=1;
-        sound_play(snd_hit2);
-    }
-    else if(attack&lt;other.attack)
-    {
-        instance_destroy();
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -372,7 +311,9 @@ if(team!=other.team)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Draw Rope
+            <string>/// Draw Rope Line and Grapple Hook
+
+// Draw Rope
 
 draw_set_colour(c_black);
 draw_line_width(attached.x+2*cos(degtorad(attached.direction)),attached.y-2*sin(degtorad(attached.direction)),x,y,5);

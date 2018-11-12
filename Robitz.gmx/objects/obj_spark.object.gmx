@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = 3;
+            <string>/// Most of the Code in Body Special Attack
+alarm[0] = 3;
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player=1;
+            <string>/// Draw Player Parts Preview
+player=1;
 
 draw_sprite_ext(spr_itemArm,lArmChoice[player-1],x+12,y-8,1,1,15,c_white,1);
 draw_sprite(spr_itemBody,bodyChoice[player-1],x,y);

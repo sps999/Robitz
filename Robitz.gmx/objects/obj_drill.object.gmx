@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(attached.hp&gt;0 &amp;&amp; attached.energy&gt;attached.energyCost)
+            <string>/// Drill Movement Arm Tracking
+
+if(attached.hp&gt;0 &amp;&amp; attached.energy&gt;attached.energyCost)
 {
     direction=attached.direction;
     image_angle=direction;
@@ -38,13 +40,37 @@ else
     instance_destroy();
 }
 
-if((attached.attached.player=1 &amp;&amp; ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))) || (attached.attached.player=1 &amp;&amp; ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))))
+// Drill Until Mouse Release
+if(attached.attached.player=1 &amp;&amp; 
+    ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || 
+     (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right))))
 {
     attached.image_index=0;
     instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision with Walls - Recoil
 
-if(collision_point(x+hspeed,y+vspeed,obj_wall,false,true))
+if(collision_point(x+hspeed,y+vspeed,obj_block,false,true))
 {
     sound_play(snd_hit1);
     
@@ -73,7 +99,9 @@ if(collision_point(x+hspeed,y+vspeed,obj_wall,false,true))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.hp-=0.2*attack;
+            <string>/// Damage Breakable Blocks
+
+other.hp-=0.2*attack;
 if(other.hp&gt;0)
 {
 
@@ -110,7 +138,9 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.attack &lt;= 10 &amp;&amp; team!=other.team)
+            <string>/// Deflect Bullets
+
+if(other.attack &lt;= 10 &amp;&amp; team!=other.team)
 {
 
     sound_play(snd_shoot1);

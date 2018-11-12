@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=0;
+            <string>/// Freeze Animations
+
+image_speed=0;
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(not instance_position(x,y+16,obj_block))
+            <string>/// Debris Movement and Bouncing
+
+if(not instance_position(x,y+16,obj_block))
 {
     vspeed+=0.5;
 }
@@ -70,6 +74,7 @@ else
         speed=5;
     // image_alpha-=0.02;
 }
+
 image_angle+=hspeed;
 if(image_alpha&lt;=0)
 {

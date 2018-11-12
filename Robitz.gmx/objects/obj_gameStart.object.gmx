@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !window_get_fullscreen()
+            <string>/// Center Game Window
+
+if !window_get_fullscreen()
 {
    window_center();
 }
@@ -35,26 +37,6 @@
       </action>
     </event>
     <event eventtype="7" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Global Variables</string>
-          </argument>
-        </arguments>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -71,7 +53,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar headChoice;
+            <string>/// Global Variables and Starting Values
+globalvar headChoice;
 globalvar bodyChoice;
 globalvar lArmChoice;
 globalvar rArmChoice;
@@ -94,21 +77,21 @@ globalvar nextY;
 globalvar nextTransition;
 globalvar screenShake;
 globalvar gameMode;
+globalvar roomTemp;
 
-window_set_size(1280,720);
-alarm[0] = 1;
 
-spawnRoom = 0;
-spawnPoint = 0;
 validSpawn = 0;
 nextRoom = 0;
 nextX = 0;
 nextY = 0;
 nextTransition = 0;
+
+roomTemp = -21;
+
 gameMode = 0;
 itemGear=0;
 
-spawnRoom=12;
+spawnRoom=rm_advJunkyard1;
 spawnPoint=GameStart;
 
 screenShake = 0;
@@ -136,26 +119,6 @@ message[15]="86%";
       </action>
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Particles</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -170,107 +133,9 @@ message[15]="86%";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// ------------------ Particles --------------------
+            <string>/// Parts List and Unlock List
 
-globalvar P_System;
-P_System = part_system_create();
-
-globalvar spark;
-spark=part_type_create();
-part_type_shape(spark,pt_shape_spark);
-part_type_size(spark,0.1,0.2,0.1,0);
-part_type_scale(spark,0.1,0.1);
-part_type_alpha1(spark,0.8);
-part_type_color1(spark,c_white); 
-part_type_speed(spark,5,8,0.2,0.5);
-part_type_direction(spark,60,120,0,15);
-part_type_gravity(spark,0.5,270);
-part_type_orientation(spark,0,0,0,0,1);           //This changes the rotation of the particle
-part_type_blend(spark,1);                         //This is the blend mode, either additive or normal
-part_type_life(spark,1,20);
-
-globalvar waterSpray;
-waterSpray=part_type_create();
-part_type_shape(waterSpray,pt_shape_pixel);
-part_type_size(waterSpray,0.1,0.5,0.1,5);
-part_type_scale(waterSpray,0.2,0.7);
-part_type_alpha1(waterSpray,0.9);
-part_type_color1(waterSpray,c_aqua); 
-part_type_speed(waterSpray,6,8,0,0);
-part_type_direction(waterSpray,220,320,0,0);
-part_type_gravity(waterSpray,3,270);
-part_type_orientation(waterSpray,direction+90,direction+90,0,0,1);           //This changes the rotation of the particle
-part_type_blend(waterSpray,1);                         //This is the blend mode, either additive or normal
-part_type_life(waterSpray,1,10);
-
-globalvar waterDrop;
-waterDrop=part_type_create();
-part_type_shape(waterDrop,pt_shape_pixel);
-part_type_size(waterDrop,0.1,0.1,0.1,5);
-part_type_scale(waterDrop,0.2,0.2);
-part_type_alpha1(waterDrop,0.9);
-part_type_color1(waterDrop,c_aqua); 
-part_type_speed(waterDrop,0,0.3,0,0);
-part_type_direction(waterDrop,60,120,0,15);
-part_type_gravity(waterDrop,0.5,270);
-part_type_orientation(waterDrop,direction+90,direction+90,0,0,1);           //This changes the rotation of the particle
-part_type_blend(waterDrop,1);                         //This is the blend mode, either additive or normal
-part_type_life(waterDrop,1,10);
-
-globalvar dust;
-dust=part_type_create();
-part_type_shape(dust,pt_shape_smoke);
-part_type_size(dust,0.1,0.1,0.2,0);
-part_type_scale(dust,1,1);
-part_type_alpha1(dust,0.7);
-part_type_color1(dust,c_dkgray); 
-part_type_speed(dust,0,0,0,0);
-part_type_direction(dust,0,0,0,0);
-part_type_gravity(dust,0,0);
-part_type_orientation(dust,0,0,0,0,0);           //This changes the rotation of the particle
-part_type_blend(dust,1);                         //This is the blend mode, either additive or normal
-part_type_life(dust,1,10);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Unlock List</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// ---------------- Default Part Choices --------------------
+// ---------------- Default Part Choices --------------------
 
 headChoice[0] = 1;
 bodyChoice[0] = 1;
@@ -473,12 +338,12 @@ itemCost[3,12]=0;
       </action>
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -487,7 +352,66 @@ itemCost[3,12]=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Gamepad</string>
+            <string>/// Custom Particles List
+globalvar P_System;
+P_System = part_system_create();
+
+globalvar spark;
+spark=part_type_create();
+part_type_shape(spark,pt_shape_spark);
+part_type_size(spark,0.1,0.2,0.1,0);
+part_type_scale(spark,0.1,0.1);
+part_type_alpha1(spark,0.8);
+part_type_color1(spark,c_white); 
+part_type_speed(spark,5,8,0.2,0.5);
+part_type_direction(spark,60,120,0,15);
+part_type_gravity(spark,0.5,270);
+part_type_orientation(spark,0,0,0,0,1);           //This changes the rotation of the particle
+part_type_blend(spark,1);                         //This is the blend mode, either additive or normal
+part_type_life(spark,1,20);
+
+globalvar waterSpray;
+waterSpray=part_type_create();
+part_type_shape(waterSpray,pt_shape_pixel);
+part_type_size(waterSpray,0.1,0.5,0.1,5);
+part_type_scale(waterSpray,0.2,0.7);
+part_type_alpha1(waterSpray,0.9);
+part_type_color1(waterSpray,c_aqua); 
+part_type_speed(waterSpray,6,8,0,0);
+part_type_direction(waterSpray,220,320,0,0);
+part_type_gravity(waterSpray,3,270);
+part_type_orientation(waterSpray,direction+90,direction+90,0,0,1);           //This changes the rotation of the particle
+part_type_blend(waterSpray,1);                         //This is the blend mode, either additive or normal
+part_type_life(waterSpray,1,10);
+
+globalvar waterDrop;
+waterDrop=part_type_create();
+part_type_shape(waterDrop,pt_shape_pixel);
+part_type_size(waterDrop,0.1,0.1,0.1,5);
+part_type_scale(waterDrop,0.2,0.2);
+part_type_alpha1(waterDrop,0.9);
+part_type_color1(waterDrop,c_aqua); 
+part_type_speed(waterDrop,0,0.3,0,0);
+part_type_direction(waterDrop,60,120,0,15);
+part_type_gravity(waterDrop,0.5,270);
+part_type_orientation(waterDrop,direction+90,direction+90,0,0,1);           //This changes the rotation of the particle
+part_type_blend(waterDrop,1);                         //This is the blend mode, either additive or normal
+part_type_life(waterDrop,1,10);
+
+globalvar dust;
+dust=part_type_create();
+part_type_shape(dust,pt_shape_smoke);
+part_type_size(dust,0.1,0.1,0.2,0);
+part_type_scale(dust,1,1);
+part_type_alpha1(dust,0.7);
+part_type_color1(dust,c_dkgray); 
+part_type_speed(dust,0,0,0,0);
+part_type_direction(dust,0,0,0,0);
+part_type_gravity(dust,0,0);
+part_type_orientation(dust,0,0,0,0,0);           //This changes the rotation of the particle
+part_type_blend(dust,1);                         //This is the blend mode, either additive or normal
+part_type_life(dust,1,10);
+</string>
           </argument>
         </arguments>
       </action>
@@ -507,7 +431,7 @@ itemCost[3,12]=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// GamePad Setup -- UNUSED
 
 globalvar padRight;
 globalvar padUp;
@@ -550,6 +474,30 @@ padLThumb=11;
 padRThumb=12;
 padSelect=9;
 padStart=10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set Window Size
+
+window_set_size(1280,720);
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>

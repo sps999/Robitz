@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=0;
+            <string>/// Spawn Player Body at saved location
+image_speed=0;
 image_index=0;
 if(spawnPoint=id &amp;&amp; room_previous(room)=2 &amp;&amp; validSpawn=0)
 {
@@ -54,7 +55,8 @@ if(spawnPoint=id &amp;&amp; room_previous(room)=2 &amp;&amp; validSpawn=0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(visible=1)
+            <string>/// Part Select when Player Above pressing &lt;ENTER&gt;
+if(visible=1)
 {
     if(spawnPoint=id)
     {
@@ -75,7 +77,7 @@ if(spawnPoint=id &amp;&amp; room_previous(room)=2 &amp;&amp; validSpawn=0)
             {
                 alarm[0]=0;
             }
-            room_goto(1); //Adventure Part Select
+            room_goto(rm_advPartSelect); //Adventure Part Select
         }
     }
 }
@@ -101,7 +103,8 @@ if(spawnPoint=id &amp;&amp; room_previous(room)=2 &amp;&amp; validSpawn=0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(validSpawn=0)
+            <string>/// Spawn Body if there is no Saved Location
+if(validSpawn=0)
 {
     instance_create(x+15,y-8,obj_body);
     validSpawn = 1;

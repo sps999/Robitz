@@ -11,26 +11,6 @@
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Head Properties</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -45,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp=100;
+            <string>/// Head Properties
+
+hp=100;
 temperature=21; //Base Temperature
 electricity=0;
 image_speed=0;
@@ -241,7 +223,9 @@ image_blend = c_material;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// image_index=(point_direction(x,y,attached.myCross.x,attached.myCross.y)/11.25); //Rotate Head
+            <string>/// Damage Handling
+
+// image_index=(point_direction(x,y,attached.myCross.x,attached.myCross.y)/11.25); //Rotate Head
 if(electricity&gt;0)
 {
     electricity-=1;

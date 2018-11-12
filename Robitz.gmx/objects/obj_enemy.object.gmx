@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>temperature=21;
+            <string>/// Enemy Properties
+
+temperature=21;
 hp=100;
 image_speed=0;
 image_index=0;
@@ -115,7 +117,9 @@ team=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hp&lt;=0)
+            <string>/// Destruction Check and Particles 
+
+if(hp&lt;=0)
 {
     instance_destroy();
     repeat(irandom(3))
@@ -132,44 +136,6 @@ team=0;
 }
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_magnetBall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(other.team!=0  &amp;&amp; other.attack &gt; 0)
-{
-    // Flash red on hit and play sound
-    image_blend=c_red;
-    sound_play(snd_hit1);
-    hp-=other.attack;
-    
-    // On hit effect for Projectile
-    with(other)
-    {
-        alarm[0]=1;
-    }
-    
-    // On hit effect for enemy
-    alarm[0]=1;
-}
 </string>
           </argument>
         </arguments>
@@ -192,9 +158,51 @@ team=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(temperature&lt;other.temperature)
+            <string>/// Heat up from Fire - No direct Damage
+
+if(temperature&lt;other.temperature)
 {
     temperature+=(-1/heatResist)*(temperature-other.temperature);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_magnetBall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Damage on Hit - Destroy Magnetball
+
+if(other.team!=0  &amp;&amp; other.attack &gt; 0)
+{
+    // Flash red on hit and play sound
+    image_blend=c_red;
+    sound_play(snd_hit1);
+    hp-=other.attack;
+    
+    // On hit effect for Projectile
+    with(other)
+    {
+        alarm[0]=1;
+    }
+    
+    // On hit effect for enemy
+    alarm[0]=1;
 }
 </string>
           </argument>
@@ -218,7 +226,9 @@ team=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.team!=0 &amp;&amp; other.attack &gt; 0)
+            <string>/// Damage on Hit - Repel Drill User
+
+if(other.team!=0 &amp;&amp; other.attack &gt; 0)
 {
     // Flash red on hit and play sound
     image_blend=c_red;
@@ -254,7 +264,9 @@ team=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.team!=0 &amp;&amp; other.attached=0)
+            <string>/// Damage on Hit - Shrink Shield
+
+if(other.team!=0 &amp;&amp; other.attached=0)
 {
     sound_play(snd_energyHit1);
     image_blend=c_gray;
@@ -284,7 +296,9 @@ team=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.team!=0  &amp;&amp; other.attack &gt; 0)
+            <string>/// Damage on Hit - Destroy Bullet
+
+if(other.team!=0  &amp;&amp; other.attack &gt; 0)
 {
     // Flash red on hit and play sound
     image_blend=c_red;

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>itemType = 0;
+            <string>/// Set Item Type
+itemType = 0;
 </string>
           </argument>
         </arguments>
@@ -48,7 +49,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(unlock[itemType,itemNumber]=itemUnlock || unlock[itemType,itemNumber]=1)
+            <string>/// Drop Gears instead if item already Unlocked
+if(unlock[itemType,itemNumber]=itemUnlock || unlock[itemType,itemNumber]=1)
 {
     repeat(itemCost)
     {
@@ -58,6 +60,8 @@
     }
     instance_destroy();
 }
+
+/// Fall until Block hit
 if(not instance_position(x,y+8,obj_block))
 {
     vspeed+=0.5;
@@ -68,6 +72,28 @@ else
     hspeed=0;
     y=instance_position(x,y+8,obj_block).y-8;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Attract to Player and Pickup
+
 if(distance_to_object(obj_body)&lt;64)
 {
     move_towards_point(instance_nearest(x,y,obj_body).x,instance_nearest(x,y,obj_body).y,8*(1-1/(1+power(distance_to_object(obj_body),2))));
@@ -100,7 +126,8 @@ if(distance_to_object(obj_body)&lt;8)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hspeed=0;
+            <string>/// Hit Wall -&gt; Stop Moving horizontally
+hspeed=0;
 </string>
           </argument>
         </arguments>
@@ -123,7 +150,9 @@ if(distance_to_object(obj_body)&lt;8)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=0;
+            <string>/// Setup Item Drop Type on Room Start
+
+image_speed=0;
 if(itemType=0)
 {
     sprite_index=spr_itemHead;

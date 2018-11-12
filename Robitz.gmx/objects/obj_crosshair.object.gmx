@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=0;
+            <string>/// Properties
+image_speed=0;
 lock=noone;
 </string>
           </argument>
@@ -49,7 +50,8 @@ lock=noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Mouse Following
+
 // If Player 1 simply move to mouse
 if(attached.player=1)
 {
@@ -191,7 +193,8 @@ else // Keep in view if not locked onto anything
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(image_blend);
+            <string>/// Draw Cursor and Line
+draw_set_color(image_blend);
 draw_set_alpha(0.1);
 draw_line(attached.x+attached.rArmXOffset,attached.y+attached.rArmYOffset,x,y);
 draw_set_alpha(1);

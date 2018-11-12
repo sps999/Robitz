@@ -1,8 +1,8 @@
-//argument0: 0 = Stand-alone; 1 = Attached to Body; 2 = Body;
+/// Temperature
 
 if(hp>0)
 {
-    temperature+=(-0.05/heatResist)*(temperature-21);
+    temperature+=(-0.05/heatResist)*(temperature-roomTemp);
     image_blend=merge_color(c_material,c_red,(temperature/meltingPoint));
     if(temperature>meltingPoint)
     {
@@ -21,6 +21,8 @@ if(hp>0)
             }
         }
     }
+    // Heat from attached object effects this part
+    // Used for Head, Legs, Arm
     if (argument0=1)
     {
         if(attached.hp>0)
@@ -28,6 +30,8 @@ if(hp>0)
             temperature+=(-0.1/heatResist)*(temperature-attached.temperature);
         }
     }
+    // Body temperature effected by Head, Arms, Legs
+    // Used by Body
     if (argument0=2)
     {
         if(myHead.hp>0)

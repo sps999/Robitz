@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp=100;
+            <string>/// Set Health and Freeze Animations
+hp=100;
 image_speed=0;
 image_index=id;
 </string>
@@ -50,7 +51,9 @@ image_index=id;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>repeat(random_range(4,8))
+            <string>/// Create Gear Debris on Death
+
+repeat(random_range(4,8))
 {
     j=instance_create(x,y,obj_debris);
     j.sprite_index=spr_item;
@@ -82,7 +85,9 @@ image_index=id;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hp &lt; 100)
+            <string>/// Regain Health Over Time (Fire Burning)
+
+if(hp &lt; 100)
 {
     hp += 2;
     if (hp &gt;= 100)

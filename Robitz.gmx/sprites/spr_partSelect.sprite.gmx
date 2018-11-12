@@ -20,6 +20,6 @@
   <width>640</width>
   <height>480</height>
   <frames>
-    <frame index="0">images\spr_menuArcade_0.png</frame>
+    <frame index="0">images\spr_partSelect_0.png</frame>
   </frames>
 </sprite>

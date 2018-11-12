@@ -11,26 +11,6 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Body Properties</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -45,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>team=1;
+            <string>/// Body Properties
+
+team=1;
 player=1;
 attached = id;
 
@@ -272,26 +254,6 @@ image_blend = c_material;
       </action>
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Create Linked Parts</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -306,7 +268,9 @@ image_blend = c_material;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Create HUD
+            <string>/// Create Linked Body Parts
+
+// Create HUD
 myHud=instance_create(0,0,obj_hud);
 myHud.hudBody=id;
 
@@ -374,26 +338,6 @@ else
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Shock Special Attack</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -408,7 +352,8 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(energy&gt;0)
+            <string>/// Shock Special Attack
+if(energy&gt;0)
 {
     energy-=20;
     i=instance_create(x,y,obj_spark);
@@ -427,26 +372,6 @@ else
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Furnace Special Attack</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -461,7 +386,8 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(energy&gt;0)
+            <string>/// Furnace Special Attack
+if(energy&gt;0)
 {
     energy-=3;
     repeat(2)
@@ -483,26 +409,6 @@ else
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Return to Menu After Death</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -517,7 +423,9 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i=0;i&lt;instance_number(obj_body);i+=1)
+            <string>/// Post Death Return to Menu
+
+for(i=0;i&lt;instance_number(obj_body);i+=1)
 {
     with(instance_find(obj_body,i))
     {
@@ -535,9 +443,9 @@ else
 
 switch (gameMode)
 {
-    case 1: room_goto(1); break;
-    case 2: room_goto(4); break;
-    case 3: room_goto(10); break;
+    case 1: room_goto(rm_advPartSelect); break;
+    case 2: room_goto(rm_arcPartSelect); break;
+    case 3: room_goto(rm_testPartSelect); break;
 }
 </string>
           </argument>
@@ -601,7 +509,7 @@ switch (gameMode)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Main Movement</string>
+            <string>--- Main Movement Script ---</string>
           </argument>
         </arguments>
       </action>
@@ -647,26 +555,6 @@ switch (gameMode)
       </action>
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Death</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -681,7 +569,10 @@ switch (gameMode)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hp&lt;=0 &amp;&amp; sprite_index!=spr_noBody)
+            <string>/// Damage Handling
+
+// Death
+if(hp&lt;=0 &amp;&amp; sprite_index!=spr_noBody)
 {
     i=instance_create(x,y,obj_debris);
     i.sprite_index=sprite_index;
@@ -702,8 +593,6 @@ switch (gameMode)
     myLeg.hp=0;
     myRArm.hp=0;
     myLArm.hp=0;
-    //myCam.sprite_index=noone;
-    //myCross.sprite_index=noone;
     alarm[0]=120;
     sprite_index=spr_noBody;
     
@@ -718,37 +607,19 @@ switch (gameMode)
 }
 if(hp&lt;=0)
 {
+    // Skip Death wait time by pressing Enter
     if(((player=1 &amp;&amp; (keyboard_check_pressed(vk_enter))) || (player=2 &amp;&amp; (keyboard_check_pressed(vk_enter)))) &amp;&amp; gameMode!=2)
     {
         alarm[0]=1;
     }
     speed=0;
 }
+
 if(hp&gt;0)
 {
 image_index+=1;
 }
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Special Attacks</string>
           </argument>
         </arguments>
       </action>
@@ -768,7 +639,9 @@ image_index+=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// ===================================
+            <string>/// Special Attacks
+
+// ===================================
 //     Body Choice Special Attacks
 // ===================================
 
@@ -864,7 +737,8 @@ if(bodyChoice[player-1]=5)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(destinationX != -1 &amp;&amp; destinationY!=-1)
+            <string>/// Relocate on Room transition
+if(destinationX != -1 &amp;&amp; destinationY!=-1)
 {
     x = destinationX;
     y = destinationY;
@@ -891,7 +765,9 @@ if(bodyChoice[player-1]=5)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(myCross.x&lt;x)
+            <string>/// Draw Body
+
+if(myCross.x&lt;x)
 {
     draw_sprite_ext(sprite_index, image_index, x, y, -1*image_xscale, image_yscale, image_angle, image_blend, 1);
 }
@@ -907,12 +783,12 @@ else
     <event eventtype="9" enumb="115">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>605</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -921,20 +797,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if window_get_fullscreen()
-{
-    window_set_fullscreen(false);
-}
-else
-{
-    window_set_fullscreen(true);
-}
-</string>
+            <string>TODO: Add menu handler separate from Body</string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="9" enumb="27">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -951,7 +817,61 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player=1)
+            <string>/// Change to Fullscreen
+
+if window_get_fullscreen()
+{
+    window_set_fullscreen(false);
+}
+else
+{
+    window_set_fullscreen(true);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>TODO: Add menu handler separate from Body</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Quit Game with Prompt
+
+if(player=1)
 {
     if(show_question("Quit Game?")=1)
     {
