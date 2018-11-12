@@ -34,6 +34,7 @@ attached = id;
 hp=100;
 temperature=21; //Base Temperature
 electricity=0;
+frost=1;
 // image_speed=0;
 image_index=0;
 vlaunchSpeed=0;
@@ -277,6 +278,7 @@ myHud.hudBody=id;
 // Create Head
 myHead=instance_create(x,y,obj_head);
 myHead.attached=id;
+myHead.team=team;
 myHead.xOffset=headXOffset;
 myHead.yOffset=headYOffset;
 with(myHead) event_perform(ev_alarm,0);
@@ -285,6 +287,7 @@ myHud.hudHead=myHead;
 // Create Left Arm
 myLArm=instance_create(x,y,obj_lArm);
 myLArm.attached=id;
+myLArm.team=team;
 myLArm.xOffset=lArmXOffset;
 myLArm.yOffset=lArmYOffset;
 with(myLArm) event_perform(ev_alarm,0);
@@ -293,6 +296,7 @@ myHud.hudLArm=myLArm;
 // Create Right Arm
 myRArm=instance_create(x,y,obj_rArm);
 myRArm.attached=id;
+myRArm.team=team;
 myRArm.xOffset=rArmXOffset;
 myRArm.yOffset=rArmYOffset;
 with(myRArm) event_perform(ev_alarm,0);
@@ -308,6 +312,7 @@ with(myBackLeg) event_perform(ev_alarm,0);
 // Create Front Leg
 myLeg=instance_create(x,y,obj_leg);
 myLeg.attached=id;
+myLeg.team=team;
 myLeg.xOffset=legXOffset;
 myLeg.yOffset=legYOffset;
 with(myLeg) event_perform(ev_alarm,0);

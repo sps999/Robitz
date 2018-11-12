@@ -30,79 +30,6 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_bee">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0 &amp;&amp; attached.team!=other.team &amp;&amp; other.bounce&lt;=0)
-{
-    script_execute(scr_damage,other.attack);
-    image_blend=c_dkgray;
-    sound_play(snd_hit1);
-    attached.vlaunchSpeed-=0.04*(other.speed)*sin(degtorad(other.direction))*(1-mass/64000);
-    attached.hlaunchSpeed+=0.08*(other.speed)*cos(degtorad(other.direction))*(1-mass/64000);
-    other.bounce=10;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_sprinkler">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(hp&gt;0)
-{
-    if(temperature&gt;other.temperature)
-    {
-        temperature+=(-0.3/heatResist)*(temperature-other.temperature);
-        if(temperature &gt; 250)
-        {
-            effect_create_above(ef_smokeup,bbox_left+random(bbox_right-bbox_left),bbox_top+random(bbox_bottom-bbox_top),0.001,merge_color(c_aqua,c_white,0.8));
-            if(other.cooldown=0)
-            {
-                sound_play(snd_steam);
-            }
-            other.cooldown=25;
-        }
-    }
-    repeat(4)
-    {
-        part_particles_create(global.P_System, bbox_left+random(bbox_right-bbox_left),bbox_top, global.waterDrop, 1);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_fire">
       <action>
         <libid>1</libid>
@@ -147,7 +74,7 @@
           <argument>
             <kind>1</kind>
             <string>/// On Hit Effect
-if(hp&gt;0 &amp;&amp; other.team!=attached.team)
+if(hp&gt;0 &amp;&amp; other.team!=team)
 {
     script_execute(scr_damage,0.04*other.attack);
     temperature+=(-0.1/heatResist)*(temperature-other.temperature);
@@ -183,7 +110,7 @@ if(hp&gt;0 &amp;&amp; other.team!=attached.team)
           <argument>
             <kind>1</kind>
             <string>/// On Hit Effect
-if(hp&gt;0 &amp;&amp; other.team!=attached.team &amp;&amp; other.attached=0)
+if(hp&gt;0 &amp;&amp; other.team!=team &amp;&amp; other.attached=0)
 {
     image_blend=c_dkgray;
     sound_play(snd_energyHit1);
@@ -219,7 +146,7 @@ if(hp&gt;0 &amp;&amp; other.team!=attached.team &amp;&amp; other.attached=0)
             <kind>1</kind>
             <string>/// On Hit Effect
 
-if(hp&gt;0 &amp;&amp; attached.team!=other.team)
+if(hp&gt;0 &amp;&amp; team!=other.team)
 {
     script_execute(scr_damage,other.attack);
     temperature+=(-0.1/heatResist)*(temperature-other.temperature);
@@ -231,6 +158,79 @@ if(hp&gt;0 &amp;&amp; attached.team!=other.team)
     {
         alarm[0]=1; // Destroy Bullet
         speed=0;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_bee">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(hp&gt;0 &amp;&amp; team!=other.team &amp;&amp; other.bounce&lt;=0)
+{
+    script_execute(scr_damage,other.attack);
+    image_blend=c_dkgray;
+    sound_play(snd_hit1);
+    attached.vlaunchSpeed-=0.04*(other.speed)*sin(degtorad(other.direction))*(1-mass/64000);
+    attached.hlaunchSpeed+=0.08*(other.speed)*cos(degtorad(other.direction))*(1-mass/64000);
+    other.bounce=10;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_sprinkler">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(hp&gt;0)
+{
+    if(temperature&gt;other.temperature)
+    {
+        temperature+=(-0.3/heatResist)*(temperature-other.temperature);
+        if(temperature &gt; 250)
+        {
+            effect_create_above(ef_smokeup,bbox_left+random(bbox_right-bbox_left),bbox_top+random(bbox_bottom-bbox_top),0.001,merge_color(c_aqua,c_white,0.8));
+            if(other.soundTimer=0)
+            {
+                sound_play(snd_steam);
+            }
+            other.soundTimer=25;
+        }
+    }
+    repeat(4)
+    {
+        part_particles_create(global.P_System, bbox_left+random(bbox_right-bbox_left),bbox_top, global.waterDrop, 1);
     }
 }
 </string>

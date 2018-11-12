@@ -80,6 +80,7 @@ if((object_index=obj_rArm &amp;&amp; rArmChoice[attached.player-1]=2) || (object
 hp=100;
 temperature=21; //Base Temperature
 electricity=0;
+frost=1;
 image_speed=0;
 image_index=0;
 subAttack=1;

@@ -80,6 +80,7 @@ if (argument0=1) //Magnesium 12
 {
     hardness=22;
     meltingPoint=350;
+    freezingPoint=-79;
     heatResist=160;
     density=1738;
     conductivity=23;
@@ -89,6 +90,7 @@ else if (argument0=2) //Copper 29
 {
     hardness=43;
     meltingPoint=495;
+    freezingPoint=-207;
     heatResist=400;
     density=8920;
     conductivity=59;
@@ -98,6 +100,7 @@ else if (argument0=3) //Chromium 24
 {
     hardness=50;
     meltingPoint=769;
+    freezingPoint=-142;
     heatResist=94;
     density=7140;
     conductivity=8;
@@ -107,6 +110,7 @@ else if (argument0=4) //Titanium 22
 {
     hardness=37;
     meltingPoint=363;
+    freezingPoint=-121;
     heatResist=22;
     density=4507;
     conductivity=2.5;
@@ -116,6 +120,7 @@ else if (argument0=5) //Aluminum 13
 {
     hardness=21;
     meltingPoint=353;
+    freezingPoint=-129;
     heatResist=235;
     density=2700;
     conductivity=38;
@@ -125,6 +130,7 @@ else if (argument0=6) //Nickel 28
 {
     hardness=36;
     meltingPoint=618;
+    freezingPoint=-247;
     heatResist=91;
     density=8908;
     conductivity=14;
@@ -134,6 +140,7 @@ else if (argument0=7) //Iron 26
 {
     hardness=29;
     meltingPoint=646;
+    freezingPoint=-272;
     heatResist=80;
     density=7874;
     conductivity=10;
@@ -143,6 +150,7 @@ else if (argument0=8) //Zinc 30
 {
     hardness=27;
     meltingPoint=273;
+    freezingPoint=-264;
     heatResist=120;
     density=7140;
     conductivity=17;

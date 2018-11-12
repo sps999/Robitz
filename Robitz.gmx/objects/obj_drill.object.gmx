@@ -82,6 +82,37 @@ if(collision_point(x+hspeed,y+vspeed,obj_block,false,true))
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_basicBullet">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Deflect Bullets
+
+if(other.attack &lt;= 10 &amp;&amp; team!=other.team)
+{
+
+    sound_play(snd_shoot1);
+    other.team = team;
+    other.direction += 180 + (choose(-1,1) * random_range(20,75));
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_blockBreakable">
       <action>
         <libid>1</libid>
@@ -115,37 +146,6 @@ else
 {
     with(other) instance_destroy();
     sound_play(snd_break);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_basicBullet">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Deflect Bullets
-
-if(other.attack &lt;= 10 &amp;&amp; team!=other.team)
-{
-
-    sound_play(snd_shoot1);
-    other.team = team;
-    other.direction += 180 + (choose(-1,1) * random_range(20,75));
 }
 </string>
           </argument>

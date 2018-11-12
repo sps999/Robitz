@@ -62,24 +62,24 @@ if(attached!=0)
     image_angle=direction;
     x=attached.x+48*cos(degtorad(direction));
     y=attached.y-48*sin(degtorad(direction));
+    
+    // Player Releases Mouse Button -&gt; SCHuT TiME
+    if(attached.attached.player=1)
+    { 
+        if ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || 
+            (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))
+        {
+            attached=0;
+            image_blend=c_purple;
+        }
+    }
+
 }
 else // SCHuT TiME
 {
     energy-=2;
     speed=0.125*energy+5;
 }
-
-// Player Releases Mouse Button -&gt; SCHuT TiME
-if(attached.attached.player=1)
-{ 
-    if ((attached.object_index=obj_lArm &amp;&amp; not mouse_check_button(mb_left)) || 
-        (attached.object_index=obj_rArm &amp;&amp; not mouse_check_button(mb_right)))
-    {
-        attached=0;
-        image_blend=c_purple;
-    }
-}
-
 </string>
           </argument>
         </arguments>
@@ -130,54 +130,12 @@ if(attached=0)
           <argument>
             <kind>1</kind>
             <string>/// Death Handler
-if(energy&lt;=0 || attached.hp&lt;=0)
+if(energy&lt;=0)
 {
     instance_destroy();
     sound_play(snd_energyBreak1);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_blockBreakable">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Damage Breakable Walls and Lose Energy
-if(attached=0)
-{
-    other.hp-=0.2*energy;
-    if(other.hp&gt;0)
-    {
-    
-        other.image_index=ceil(0.03*(100-other.hp));
-        if(energy&gt;24)
-        {
-            sound_play(snd_break); 
-        }
-        energy-=2;
-    } 
-    else 
-    {
-        with(other) instance_destroy();
-        sound_play(snd_break);
-        energy-=5;
-    }
-}
+
 </string>
           </argument>
         </arguments>
@@ -246,6 +204,49 @@ if(energy&lt;2*other.attack &amp;&amp; team!=other.team)
 {
     instance_destroy();
     sound_play(snd_energyHit2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_blockBreakable">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Damage Breakable Walls and Lose Energy
+if(attached=0)
+{
+    other.hp-=0.2*energy;
+    if(other.hp&gt;0)
+    {
+    
+        other.image_index=ceil(0.03*(100-other.hp));
+        if(energy&gt;24)
+        {
+            sound_play(snd_break); 
+        }
+        energy-=2;
+    } 
+    else 
+    {
+        with(other) instance_destroy();
+        sound_play(snd_break);
+        energy-=5;
+    }
 }
 </string>
           </argument>

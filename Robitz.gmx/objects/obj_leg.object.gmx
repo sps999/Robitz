@@ -29,6 +29,7 @@
 hp=100;
 temperature=21; //Base Temperature
 electricity=0;
+frost=1;
 image_speed=0;
 image_index=0;
 

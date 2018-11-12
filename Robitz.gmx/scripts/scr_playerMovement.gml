@@ -26,11 +26,11 @@ if(keyboard_check(ord("D")) && not keyboard_check(ord("A")))
 {
     if(electricity>myLeg.electricity)
     {
-        legspeed=myLeg.movespeed*(1-totalMass/64000-electricity/100);
+        legspeed=myLeg.movespeed*(1-totalMass/64000-electricity/100)*frost;
     }
     else
     {
-        legspeed=myLeg.movespeed*(1-totalMass/64000-myLeg.electricity/100);
+        legspeed=myLeg.movespeed*(1-totalMass/64000-myLeg.electricity/100)*frost;
         if(leghold >= 30)
         {
             legspeed *= 1.5;
@@ -46,11 +46,11 @@ if(keyboard_check(ord("A")) && not keyboard_check(ord("D")))
 {
     if(electricity>myLeg.electricity)
     {
-        legspeed=-myLeg.movespeed*(1-totalMass/64000-electricity/100);
+        legspeed=-myLeg.movespeed*(1-totalMass/64000-electricity/100)*frost;
     }
     else
     {
-        legspeed=-myLeg.movespeed*(1-totalMass/64000-myLeg.electricity/100);
+        legspeed=-myLeg.movespeed*(1-totalMass/64000-myLeg.electricity/100)*frost;
         if(leghold >= 30)
         {
             legspeed *= 1.5;
@@ -83,9 +83,9 @@ if(keyboard_check_pressed(vk_space) && not keyboard_check(ord("S")))
     // Check if on solid ground
     if(collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_block,0,1) || collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_floor,0,1))
     {
-        if(abs(-1*(myLeg.baseJump*(1-totalMass/64000)))>6)
+        if(abs(-1*(myLeg.baseJump*(1-totalMass/64000))*frost)>6)
         {
-            jumpspeed=-1*(myLeg.baseJump*(1-totalMass/64000));
+            jumpspeed=-1*(myLeg.baseJump*(1-totalMass/64000)*frost);
         }
         else
         {

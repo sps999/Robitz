@@ -29,6 +29,7 @@
 
 hp=100;
 temperature=21; //Base Temperature
+frost=1;
 electricity=0;
 image_speed=0;
 image_index=0;
@@ -248,6 +249,7 @@ if(hp&lt;=0 &amp;&amp; sprite_index!=spr_noHead)
     effect_create_above(ef_explosion,x,y,0.5,c_white);
     sprite_index=spr_noHead;
     image_index=0;
+    electricity = 0;
     volume=0.1;
     mass=1;
     part_particles_create(global.P_System, x, y, global.spark, 16);

@@ -28,6 +28,7 @@
             <string>/// Properties
 
 temperature=12;
+soundTimer=0;
 </string>
           </argument>
         </arguments>
@@ -55,6 +56,10 @@ temperature=12;
 repeat(6)
 {
         part_particles_create(global.P_System, x+15, y+5, global.waterSpray, 1);
+}
+if(soundTimer &gt; 0)
+{
+    soundTimer-=1;
 }
 </string>
           </argument>

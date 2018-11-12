@@ -86,7 +86,7 @@ nextX = 0;
 nextY = 0;
 nextTransition = 0;
 
-roomTemp = -21;
+roomTemp = 21;
 
 gameMode = 0;
 itemGear=0;
