@@ -83,7 +83,22 @@ if(keyboard_check_pressed(vk_space) && not keyboard_check(ord("S")))
     // Check if on solid ground
     if(collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_block,0,1) || collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_floor,0,1))
     {
-        if(abs(-1*(myLeg.baseJump*(1-totalMass/64000))*frost)>6)
+        // Electicboots Extendo Legs
+        if(legChoice[player-1]=5 && myLeg.hp > 0)
+        {
+            if(myLeg.energy = 100)
+            {
+                myLeg.energy -= 1;
+                i=instance_create(x,y-8,obj_extendoLegs);
+                i.direction=270;
+                i.image_angle=direction;
+                i.speed=20;
+                i.attack=10;
+                i.attached=myLeg.id;
+                i.team=attached.team; //Stops from shooting self
+            }
+        }
+        else if(abs(-1*(myLeg.baseJump*(1-totalMass/64000))*frost)>6)
         {
             jumpspeed=-1*(myLeg.baseJump*(1-totalMass/64000)*frost);
         }
@@ -104,6 +119,18 @@ if(keyboard_check_pressed(vk_space) && not keyboard_check(ord("S")))
 if (keyboard_check_pressed(vk_space) && not collision_rectangle(bbox_left+1,y+28,bbox_right-1,y+28+vspeed,obj_wall,0,1) && myLeg.hover=1)
 {
     myLeg.hovering=1;
+    // Electicboots Extendo Legs
+    if(legChoice[player-1]=5 && myLeg.energy = 100)
+    {
+        myLeg.energy -= 1;
+        i=instance_create(x,y,obj_extendoLegs);
+        i.direction=270;
+        i.image_angle=direction;
+        i.speed=20;
+        i.attack=10;
+        i.attached=myLeg.id;
+        i.team=attached.team; //Stops from shooting self
+    }
 }
 // if(keyboard_check_released(vk_space) && myLeg.hover=1)
 // if((gamepad_check_button_released(1,3) || gamepad_check_button_released(1,2)) && myLeg.hover=1)
@@ -153,18 +180,18 @@ if(myLeg.hover=1)
                 i.attack=1;
             }
             
-            // Electicboots Double Jump
-            if(legChoice[player-1]=5)
-            {
-                vspeed=0;
-                vlaunchSpeed*=0.25;
-                jumpspeed=-myLeg.baseHover*(1-totalMass/64000);
-            }
-            
             // Magnet Hover
             if(legChoice[player-1]=6)
             {
                 legspeed*=0.7;
+                jumpspeed=-myLeg.baseHover*(1-totalMass/64000);
+            }
+            
+            // Electicboots Double Jump
+            if(legChoice[player-1]=7)
+            {
+                vspeed=0;
+                vlaunchSpeed*=0.25;
                 jumpspeed=-myLeg.baseHover*(1-totalMass/64000);
             }
         }

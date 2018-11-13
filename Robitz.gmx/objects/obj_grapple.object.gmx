@@ -54,16 +54,20 @@ attached.image_index = 0;
 
 attack=0;
 speed = -8;
+
+direction = point_direction(attached.x,attached.y,x,y);
+image_angle = direction;
+
 if(distance_to_point(attached.x,attached.y) &lt; 12)
 {
     instance_destroy();
 }
-else
+else if (distance_to_point(attached.x,attached.y) &lt; 48)
 {
-    direction = point_direction(attached.x,attached.y,x,y);
-    alarm[0] = 1;
+    speed = -12;
 }
 
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>
@@ -116,8 +120,6 @@ if(attached.attached.player=1)
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="4" ename="obj_blockJunk">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -134,44 +136,97 @@ if(attached.attached.player=1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// No Latching to Garbage
-if(other.hp&gt;0)
+            <string>/// Collision Events
+block = instance_place(x+hspeed,y+vspeed,obj_block);
+
+// Latch on
+if(block != noone)
 {
-    if(bbox_left-other.bbox_right&gt;16)
+    if(attack &gt; 0)
     {
-        x=other.bbox_right;
-    }
-    if(bbox_right-other.bbox_left&lt;-16)
-    {
-        x=other.bbox_left;
-    }
-    if(bbox_top-other.bbox_bottom&gt;16)
-    {
-        y=other.bbox_bottom;
-    }
-    if(bbox_bottom-other.bbox_top&lt;-16)
-    {
-        y=other.bbox_top;
-    }
-    
-    if(attack&gt;8)
-    {
-        sound_play(snd_break);
+        speed = 0;
+        if(y &gt; block.bbox_bottom)
+        {
+            y = block.bbox_bottom;
+        }
+        if(y &lt; block.bbox_top)
+        {
+            y = block.bbox_top;
+        }
+        if(x &gt; block.bbox_right)
+        {
+            x = block.bbox_right;
+        }
+        if(x &lt; block.bbox_left)
+        {
+            x = block.bbox_left;
+        }
         
-        j=instance_create(x,y,obj_debris);
-        j.sprite_index=spr_item;
-        j.image_index=random(8);
-        j.direction=direction;
-        j.speed=-0.1*speed;
-        j.image_blend=make_colour_hsv(random(255), random(255), random(255));
-        j.image_speed=0;
+        direction = point_direction(attached.x,attached.y,x,y);
+        
+        attached.attached.vlaunchSpeed+=0.015*(distance_to_object(attached.attached))*-sin(degtorad(direction));
+        attached.attached.hlaunchSpeed-=0.02*(distance_to_object(attached.attached))*-cos(degtorad(direction));
+        attached.attached.vlaunchSpeed*=(0.9025);
+        
+        // Damage Breakable Blocks
+        if(block.object_index = obj_blockBreakable)
+        {
+            if(block.hp &gt; 0)
+            {
+                block.hp-=0.1*attack;
+                block.image_index=ceil(0.03*(100-block.hp));
+            }
+            else 
+            {
+                with(block) alarm[0] = 1;
+                sound_play(snd_break);
+                
+                attack = 0;
+                alarm[0] = 1;
+            }
+        }
+        
+        // No Latching to Junk
+        if(block.object_index = obj_blockJunk)
+        {
+            sound_play(snd_break);
+            
+            j=instance_create(x,y,obj_debris);
+            j.sprite_index=spr_item;
+            j.image_index=random(8);
+            j.direction=direction;
+            j.speed=-0.1*speed;
+            j.image_blend=make_colour_hsv(random(255), random(255), random(255));
+            j.image_speed=0;
+                
+            alarm[0]=1; // Reel In
+        }
+
     }
-} 
-
-alarm[0]=1; // Destroy Bullet
-speed=0;
-
+}
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_blockJunk">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Collision in Step</string>
           </argument>
         </arguments>
       </action>
@@ -179,12 +234,12 @@ speed=0;
     <event eventtype="4" ename="obj_blockBreakable">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>605</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -193,52 +248,7 @@ speed=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Latch to Block -  Damage block over time
-
-if( attack &gt; 0)
-{
-    other.hp-=0.1*attack;
-    if(other.hp&gt;0)
-    {
-    
-        other.image_index=ceil(0.03*(100-other.hp));
-        
-        speed = 0;
-        
-        if(bbox_left-other.bbox_right&gt;16)
-        {
-            x=other.bbox_right;
-        }
-        if(bbox_right-other.bbox_left&lt;-16)
-        {
-            x=other.bbox_left;
-        }
-        if(bbox_top-other.bbox_bottom&gt;16)
-        {
-            y=other.bbox_bottom;
-        }
-        if(bbox_bottom-other.bbox_top&lt;-16)
-        {
-            y=other.bbox_top;
-        }
-        
-        direction = point_direction(attached.x,attached.y,x,y);
-        
-        attached.attached.vlaunchSpeed+=0.015*(distance_to_object(attached.attached))*-sin(degtorad(direction));
-        attached.attached.hlaunchSpeed-=0.015*(distance_to_object(attached.attached))*-cos(degtorad(direction));
-        attached.attached.vlaunchSpeed*=(0.95);
-    } 
-    else 
-    {
-        with(other) instance_destroy();
-        sound_play(snd_break);
-        
-        attached.image_index=0;
-        attack = 0;
-        alarm[0] = 1;
-    }
-}
-</string>
+            <string>Collision in Step</string>
           </argument>
         </arguments>
       </action>
@@ -246,12 +256,12 @@ if( attack &gt; 0)
     <event eventtype="4" ename="obj_block">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>605</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -260,36 +270,7 @@ if( attack &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Latch to Block
-
-if(attack &gt; 0)
-{
-    speed = 0;
-    
-    if(y &gt; other.bbox_bottom)
-    {
-        y = other.bbox_bottom;
-    }
-    if(y &lt; other.bbox_top)
-    {
-        y = other.bbox_top;
-    }
-    if(x &gt; other.bbox_right)
-    {
-        x = other.bbox_right;
-    }
-    if(x &lt; other.bbox_left)
-    {
-        x = other.bbox_left;
-    }
-    
-    direction = point_direction(attached.x,attached.y,x,y);
-    
-    attached.attached.vlaunchSpeed+=0.015*(distance_to_object(attached.attached))*-sin(degtorad(direction));
-    attached.attached.hlaunchSpeed-=0.015*(distance_to_object(attached.attached))*-cos(degtorad(direction));
-    attached.attached.vlaunchSpeed*=(0.95);
-}
-</string>
+            <string>Collision in Step</string>
           </argument>
         </arguments>
       </action>

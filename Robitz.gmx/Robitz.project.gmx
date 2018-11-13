@@ -68,6 +68,7 @@
       <sprite>sprites\spr_shieldBullet</sprite>
       <sprite>sprites\spr_drill</sprite>
       <sprite>sprites\spr_grapple</sprite>
+      <sprite>sprites\spr_extendoLeg</sprite>
       <sprite>sprites\spr_magnetBall</sprite>
       <sprite>sprites\spr_jet</sprite>
       <sprite>sprites\spr_oil</sprite>
@@ -183,6 +184,7 @@
       <object>objects\obj_slam</object>
       <object>objects\obj_shield</object>
       <object>objects\obj_grapple</object>
+      <object>objects\obj_extendoLegs</object>
       <object>objects\obj_drill</object>
       <object>objects\obj_magnetBall</object>
       <object>objects\obj_spark</object>

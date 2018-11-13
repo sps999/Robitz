@@ -100,7 +100,7 @@ else if(legChoice[attached.player-1]=4)
     hover=0;
 }
 
-// Electric Leg: Double Jump
+// Electric Leg: Extendo Legs
 else if(legChoice[attached.player-1]=5)
 {
     sprite_index=spr_rLeg01;
@@ -110,7 +110,7 @@ else if(legChoice[attached.player-1]=5)
     baseJump=10;
     hover=1;
     baseHover=10;
-    energyCost=100;
+    energyCost=0;
 }
 
 // Magnet Leg: Double Jump Slow Fall
