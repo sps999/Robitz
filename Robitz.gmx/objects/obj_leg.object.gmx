@@ -120,10 +120,10 @@ else if(legChoice[attached.player-1]=6)
     script_execute(scr_material,6);
     volume=0.240; //Temp
     movespeed=8;
-    baseJump=8;
+    baseJump=12;
     hover=1;
-    baseHover=-1;
-    energyCost=2;
+    baseHover=0;
+    energyCost=1;
 }
 
 else // Standard Null Legs

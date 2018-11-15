@@ -62,10 +62,11 @@ if(distance_to_point(attached.x,attached.y) &lt; 12)
 {
     instance_destroy();
 }
-else if (distance_to_point(attached.x,attached.y) &lt; 48)
+else if (distance_to_point(attached.x,attached.y) &lt; 64)
 {
-    speed = -12;
+    speed = -16;
 }
+
 
 alarm[0] = 1;
 </string>
@@ -181,7 +182,6 @@ if(block != noone)
                 with(block) alarm[0] = 1;
                 sound_play(snd_break);
                 
-                attack = 0;
                 alarm[0] = 1;
             }
         }

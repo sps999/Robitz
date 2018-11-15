@@ -80,7 +80,11 @@ if(attached.attached.player=1)
             direction = point_direction(x,y,attached.attached.myCross.x,attached.attached.myCross.y);
         }
     }
-    else isLaunched = true;
+    else 
+    {
+        isLaunched = true;
+        speed = 10;
+    }
 }
 
 </string>

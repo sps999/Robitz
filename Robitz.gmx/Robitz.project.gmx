@@ -76,6 +76,8 @@
     <sprites name="World">
       <sprite>sprites\spr_savePoint</sprite>
       <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_autoDoor</sprite>
+      <sprite>sprites\spr_water</sprite>
       <sprite>sprites\spr_wallD</sprite>
       <sprite>sprites\spr_wallDestructable</sprite>
       <sprite>sprites\spr_wallJunk</sprite>
@@ -152,6 +154,7 @@
       <object>objects\obj_floor</object>
       <object>objects\obj_blockBreakable</object>
       <object>objects\obj_blockJunk</object>
+      <object>objects\obj_water</object>
       <object>objects\obj_savePoint</object>
       <object>objects\obj_autoDoor</object>
       <object>objects\obj_sprinkler</object>

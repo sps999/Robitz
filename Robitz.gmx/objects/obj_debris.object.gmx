@@ -52,9 +52,18 @@ image_speed=0;
             <kind>1</kind>
             <string>/// Debris Movement and Bouncing
 
-if(not instance_position(x,y+16,obj_block))
+if(!instance_position(x,y+16,obj_block))
 {
-    vspeed+=0.5;
+    if(!instance_position(x,y,obj_water))
+    {
+        vspeed+=0.5;
+    }
+    else
+    {
+        vspeed-=0.5;
+        vspeed*=0.85;
+        hspeed*=0.95;
+    }
 }
 else
 {

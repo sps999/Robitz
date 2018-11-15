@@ -246,11 +246,11 @@ if(vspeed&lt;-8)
     vspeed=-8;
     
 //Horizontal bounce
-if(place_meeting(x + hspeed, y, obj_wall))
+if(place_meeting(x + hspeed, y, obj_wall) || place_meeting(x + hspeed, y, obj_water))
     direction = -direction + 180;
 
 //Vertical bounce
-if(place_meeting(x, y + vspeed, obj_wall))
+if(place_meeting(x, y + vspeed, obj_wall) || place_meeting(x + hspeed, y, obj_water))
     direction = -direction;
 
 </string>

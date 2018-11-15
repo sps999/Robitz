@@ -55,7 +55,7 @@ soundTimer=0;
 
 repeat(6)
 {
-        part_particles_create(global.P_System, x+15, y+5, global.waterSpray, 1);
+    part_particles_create(global.P_System, x+15, y+5, global.waterSpray, 1);
 }
 if(soundTimer &gt; 0)
 {

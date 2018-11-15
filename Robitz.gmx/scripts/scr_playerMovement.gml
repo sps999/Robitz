@@ -1,5 +1,7 @@
+
+
 hlaunchSpeed*=0.9;
-totalMass=(mass+myHead.mass+myLeg.mass+myRArm.mass+myLArm.mass);
+totalMass=1*(mass+myHead.mass+myLeg.mass+myRArm.mass+myLArm.mass);
 
 //if(myCross.x<x) image_xscale=-1; else image_xscale=1;
 
@@ -81,7 +83,7 @@ if((not keyboard_check((ord("D"))) && legspeed>=0) || (not keyboard_check((ord("
 if(keyboard_check_pressed(vk_space) && not keyboard_check(ord("S")))
 {
     // Check if on solid ground
-    if(collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_block,0,1) || collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_floor,0,1))
+    if(collision_rectangle(bbox_left+1,y+25,bbox_right-1,y+25+vspeed,obj_block,0,1) || collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_floor,0,1))
     {
         // Electicboots Extendo Legs
         if(legChoice[player-1]=5 && myLeg.hp > 0)
@@ -184,7 +186,12 @@ if(myLeg.hover=1)
             if(legChoice[player-1]=6)
             {
                 legspeed*=0.7;
-                jumpspeed=-myLeg.baseHover*(1-totalMass/64000);
+                jumpspeed=0;
+                if(vlaunchSpeed > -4)
+                    vlaunchSpeed-=2;
+                else if(vlaunchSpeed < 4)
+                    vlaunchSpeed+=1.5;
+                        
             }
             
             // Electicboots Double Jump
@@ -198,7 +205,7 @@ if(myLeg.hover=1)
     }
 }
 
-// 
+
 if(vlaunchSpeed>=abs(jumpspeed))
 {
     vlaunchSpeed-=abs(jumpspeed);
@@ -217,7 +224,16 @@ if(keyboard_check_released(vk_space) && jumpspeed<0)
         jumpspeed=0;
     }
 }
+
+
 hspeed=legspeed+hlaunchSpeed;
+vspeed=jumpspeed+vlaunchSpeed;
+
+if(collision_point(x,y,obj_water,false,true))
+{
+    hspeed *= 0.7;
+    vspeed *= 0.7;
+}
 
 // Speed limiter to prevent moving through walls
 if(hspeed>30)
@@ -228,7 +244,6 @@ if(hspeed<-30)
 {
     hspeed=-30;
 }
-vspeed=jumpspeed+vlaunchSpeed;
 
 // Speed limiter to prevent falling through blocks
 if(vspeed>30)
@@ -305,14 +320,18 @@ if(selfDestruct>80 && hp=0)
 // if((collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_block,0,1) || (collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_floor,0,1) && not gamepad_check_button(1,14))) && vspeed>0)
 
 // Collision to Floor Below
-if ((collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_block,0,1) || (collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_floor,0,1) && not keyboard_check(ord("S"))))  && vspeed>0)
+block = collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_wall,false,true);
+if (block!=noone && (block.object_index != obj_floor || not keyboard_check(ord("S"))) && vspeed>0)
 {
     // Snap to be standing on floor (and not in the floor)
-    with(collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_wall,0,1))
+    with(block)
     {
         other.y=y-24;
     }
     
+    if(block.object_index = obj_blockJunk && block.vspeed != 0 && block.vspeed < 0.2)
+        block.vspeed+=vspeed/8;
+        
     // Stop Falling
     vspeed=0;
     vlaunchSpeed*=0.75;
@@ -345,11 +364,11 @@ else // In mid-air
 }
 
 // Wall to the Right
-if(collision_rectangle(bbox_right,y+23,bbox_right+hspeed,myHead.bbox_top+1,obj_block,0,1))
+if(collision_rectangle(bbox_right,y+20,bbox_right+hspeed,myHead.bbox_top+1,obj_block,0,1))
 {
     if(hspeed>0)
     {
-        with(collision_rectangle(bbox_right,y+23,bbox_right+hspeed,myHead.bbox_top+1,obj_block,0,1))
+        with(collision_rectangle(bbox_right,y+20,bbox_right+hspeed,myHead.bbox_top+1,obj_block,0,1))
         {
             other.x+=bbox_left-other.bbox_right;
         }
@@ -359,11 +378,11 @@ if(collision_rectangle(bbox_right,y+23,bbox_right+hspeed,myHead.bbox_top+1,obj_b
 }
 
 // Wall to the Left
-if(collision_rectangle(bbox_left+hspeed,y+23,bbox_left,myHead.bbox_top+1,obj_block,0,1))
+if(collision_rectangle(bbox_left+hspeed,y+20,bbox_left,myHead.bbox_top+1,obj_block,0,1))
 {
     if(hspeed<0)
     {
-        with(collision_rectangle(bbox_left+hspeed,y+23,bbox_left,myHead.bbox_top+1,obj_block,0,1))
+        with(collision_rectangle(bbox_left+hspeed,y+20,bbox_left,myHead.bbox_top+1,obj_block,0,1))
         {
             other.x+=bbox_right-other.bbox_left;
         }

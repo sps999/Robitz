@@ -106,6 +106,22 @@ if(image_index&gt;3)
     image_index=1;
 }
 image_angle = direction;
+
+var water = instance_position(x,y,obj_water);
+if(water!=noone)
+{
+    if(!place_meeting(x+hspeed,y+vspeed,obj_water) || !place_meeting(x-hspeed-hspeed,y-vspeed-vspeed,obj_water))
+    {
+        repeat(8)
+        {
+            part_particles_create(global.P_System, x+random(bbox_right-bbox_left),water.y+8, global.waterSplash, 1);
+        }
+    }
+    
+    x -= 0.3 * hspeed;
+    y -= 0.3 * vspeed;
+
+}
 </string>
           </argument>
         </arguments>
@@ -239,6 +255,9 @@ if(other.hp&gt;0)
         j.image_blend=make_colour_hsv(random(255), random(255), random(255));
         j.image_speed=0;
     }
+    
+    if(other.vspeed != 0)
+        other.vspeed-=0.08*(attack)*sin(degtorad(direction));
 } 
 
 alarm[0]=1; // Destroy Bullet
