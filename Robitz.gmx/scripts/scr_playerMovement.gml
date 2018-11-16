@@ -83,7 +83,7 @@ if((not keyboard_check((ord("D"))) && legspeed>=0) || (not keyboard_check((ord("
 if(keyboard_check_pressed(vk_space) && not keyboard_check(ord("S")))
 {
     // Check if on solid ground
-    if(collision_rectangle(bbox_left+1,y+25,bbox_right-1,y+25+vspeed,obj_block,0,1) || collision_rectangle(bbox_left+1,y+24,bbox_right-1,y+24+vspeed,obj_floor,0,1))
+    if(collision_rectangle(bbox_left+1,y+26,bbox_right-1,y+26+vspeed,obj_block,0,1) || collision_rectangle(bbox_left+1,y+26,bbox_right-1,y+26+vspeed,obj_floor,0,1))
     {
         // Electicboots Extendo Legs
         if(legChoice[player-1]=5 && myLeg.hp > 0)

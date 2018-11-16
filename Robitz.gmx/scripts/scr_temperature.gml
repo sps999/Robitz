@@ -2,7 +2,14 @@
 
 if(hp>0)
 {
-    temperature+=(-0.05/heatResist)*(temperature-roomTemp);
+    var water = instance_place(x,y,obj_water);
+    if(water != noone)
+    {
+        temperature+=(-0.3/heatResist)*(temperature-water.temperature);
+    }
+    else
+        temperature+=(-0.05/heatResist)*(temperature-roomTemp);
+
     if(temperature >= 0)
     {
         image_blend=merge_color(c_material,c_red,(temperature/meltingPoint));

@@ -16,8 +16,8 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1552</w>
-    <h>840</h>
+    <w>1024</w>
+    <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>120</xoffset>
-    <yoffset>145</yoffset>
+    <xoffset>-24</xoffset>
+    <yoffset>97</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background4" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
@@ -398,7 +398,7 @@
     <instance objName="obj_debris" x="1616" y="528" name="inst_9680D9AF" locked="0" code="sprite_index=spr_head01;&#xA;image_angle=47;&#xA;image_blend=c_gray;&#xA;&#xA;x+=16;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_debris" x="1584" y="560" name="inst_F978578E" locked="0" code="sprite_index=spr_lArm01;&#xA;image_angle=50;&#xA;image_blend=c_gray;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hive" x="976" y="448" name="inst_059B8F4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_water" x="0" y="592" name="inst_E333181C" locked="0" code="" scaleX="64.5161285400391" scaleY="8" colour="4294967295" rotation="0"/>
+    <instance objName="obj_water" x="0" y="592" name="inst_E333181C" locked="0" code="temperature = -1000;&#xA;" scaleX="64.5161285400391" scaleY="9.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="1120" y="672" name="inst_99930F9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="1088" y="672" name="inst_FB016C06" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="1056" y="672" name="inst_B75D03D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -406,6 +406,9 @@
     <instance objName="obj_blockJunk" x="992" y="672" name="inst_9E3D47AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="1344" y="672" name="inst_9B20CD46" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blockJunk" x="1280" y="672" name="inst_3B45DC74" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="896" y="768" name="inst_E614DF0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="1216" y="768" name="inst_1789CE18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block" x="1248" y="768" name="inst_42C308AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -25,25 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set Health and Freeze Animations
+            <string>/// Set Properties
 hp=100;
+
+temperature = roomTemp;
+script_execute(scr_material,1);
+meltingPoint = 1600;
+team = 0;
+
 image_speed=0;
 image_index=id;
 
-var water = instance_position(x,bbox_bottom,obj_water);
-if(water != noone)
-{
-    y = water.y - 16;
-    vspeed = -0.1*random(4);
-    alarm[1] = 10;
-    
-    var block = collision_point(x,y,obj_blockJunk,false,true);
-    if(block != noone)
-    {
-        y = block.bbox_bottom;
-        instance_destroy();   
-    }
-}
+alarm[2] = 1;
 </string>
           </argument>
         </arguments>
@@ -83,6 +76,47 @@ repeat(random_range(4,8))
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Water Setup
+
+var water = instance_position(x,bbox_bottom,obj_water);
+if(water != noone)
+{
+    y = water.y - 16;
+    vspeed = -0.1*random(4);
+    alarm[1] = 10;
+    alarm[0] = 1;
+    
+    temperature = water.temperature;
+    
+    var block = collision_point(x,y,obj_blockJunk,false,true);
+    if(block != noone)
+    {
+        y = block.bbox_bottom;
+        instance_destroy();   
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -100,7 +134,9 @@ repeat(random_range(4,8))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(collision_point(x,y+16,obj_water,false,true))
+            <string>/// Junk Floats in Water
+
+if(collision_point(x,y+16,obj_water,false,true))
 {
     if(vspeed &gt;= 4)
     {
@@ -138,6 +174,46 @@ else
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_temperature</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -153,19 +229,41 @@ else
           <argument>
             <kind>1</kind>
             <string>/// Regain Health Over Time (Fire Burning)
-
-if(hp &lt; 100)
+if(hp &lt;= 0)
 {
-    hp += 2;
-    if (hp &gt;= 100)
-    {
-        hp = 100;
-        image_blend = c_white;
-    }
-    
-    alarm[0] = 5;
-    image_blend = merge_colour(c_red, c_white, hp/100);
+    instance_destroy();
 }
+
+alarm[0] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_fire">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Heat up from Fire - No direct Damage
+
+if(temperature&lt;other.temperature)
+{
+    temperature+=(-1/heatResist)*(temperature-other.temperature);
+}
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>
